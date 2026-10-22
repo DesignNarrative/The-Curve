@@ -1,0 +1,256 @@
+/* ============================================================
+   THE CURVE VIRAR — TOWER & BUILDING SVG ILLUSTRATIONS
+   CSS-drawn architectural placeholders
+   ============================================================ */
+
+/* ─── TOWER BUILDING ILLUSTRATION ───────────────────────── */
+.tower-illustration {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 20px 0;
+}
+
+.tower-block {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main building body */
+.tower-body {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #2a2010 0%, #1a1408 50%, #0f0d07 100%);
+  border-left: 1px solid rgba(201,169,110,0.15);
+  border-right: 1px solid rgba(201,169,110,0.15);
+  border-top: 1px solid rgba(201,169,110,0.25);
+}
+
+/* Window grid on towers */
+.tower-body::before {
+  content: '';
+  position: absolute;
+  inset: 8px 6px;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 10px,
+      rgba(201,169,110,0.08) 10px,
+      rgba(201,169,110,0.08) 11px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 12px,
+      rgba(201,169,110,0.08) 12px,
+      rgba(201,169,110,0.08) 13px
+    );
+}
+
+/* Lit windows - warm glow effect */
+.tower-body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(3px 3px at 20% 25%, rgba(255,220,120,0.4) 0%, transparent 100%),
+    radial-gradient(3px 3px at 40% 15%, rgba(255,220,120,0.3) 0%, transparent 100%),
+    radial-gradient(3px 3px at 65% 35%, rgba(255,220,120,0.5) 0%, transparent 100%),
+    radial-gradient(3px 3px at 80% 20%, rgba(255,220,120,0.3) 0%, transparent 100%),
+    radial-gradient(3px 3px at 25% 50%, rgba(255,220,120,0.4) 0%, transparent 100%),
+    radial-gradient(3px 3px at 55% 60%, rgba(255,220,120,0.3) 0%, transparent 100%),
+    radial-gradient(3px 3px at 75% 45%, rgba(255,220,120,0.5) 0%, transparent 100%),
+    radial-gradient(3px 3px at 35% 70%, rgba(255,220,120,0.2) 0%, transparent 100%),
+    radial-gradient(3px 3px at 60% 80%, rgba(255,220,120,0.4) 0%, transparent 100%);
+  animation: windowFlicker 8s ease-in-out infinite alternate;
+}
+@keyframes windowFlicker {
+  0%, 100% { opacity: 0.8; }
+  25% { opacity: 1; }
+  50% { opacity: 0.6; }
+  75% { opacity: 0.9; }
+}
+
+/* Tower top / crown */
+.tower-crown {
+  width: 80%;
+  height: 20px;
+  background: linear-gradient(180deg, #3a2c14 0%, #2a2010 100%);
+  border-radius: 2px 2px 0 0;
+  border-top: 1px solid rgba(201,169,110,0.4);
+  position: relative;
+}
+.tower-crown::after {
+  content: '';
+  position: absolute;
+  top: -6px; left: 50%; transform: translateX(-50%);
+  width: 2px; height: 8px;
+  background: var(--gold);
+  box-shadow: 0 -4px 12px rgba(201,169,110,0.8);
+}
+
+/* Terrace / balcony lines */
+.tower-terraces {
+  position: absolute;
+  left: -4px; right: -4px;
+  top: 20%; bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  pointer-events: none;
+}
+.tower-terrace-line {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+  margin: 0 -2px;
+  border-radius: 2px;
+}
+
+/* Tower glow at base */
+.tower-base-glow {
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 120%; height: 60px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,169,110,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Tower heights */
+.tower-1 .tower-body { height: 320px; }
+.tower-2 .tower-body { height: 380px; }
+.tower-3 .tower-body { height: 360px; }
+.tower-4 .tower-body { height: 300px; }
+
+/* Sky gradient behind towers */
+.sky-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    #0a0815 0%,
+    #150f1a 20%,
+    #1a1205 50%,
+    #241808 70%,
+    #1a1005 85%,
+    #0a0805 100%
+  );
+}
+
+/* Stars in sky */
+.sky-star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: starTwinkle 3s ease-in-out infinite alternate;
+}
+@keyframes starTwinkle {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.7; }
+}
+
+/* Glow halos around towers */
+.tower-glow-halo {
+  position: absolute;
+  bottom: 0;
+  left: 50%; transform: translateX(-50%);
+  width: 200%; height: 200px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,169,110,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Horizon glow */
+.horizon-glow {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, transparent 0%, rgba(201,169,110,0.06) 60%, rgba(201,169,110,0.12) 100%);
+  pointer-events: none;
+}
+
+/* Ground / Podium */
+.podium-base {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, #1a1408 0%, #0f0d07 100%);
+  border-top: 1px solid rgba(201,169,110,0.2);
+}
+.podium-base::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+}
+
+/* Pool shimmer */
+.pool-shimmer {
+  position: absolute;
+  bottom: 16px; left: 20%; right: 20%;
+  height: 16px;
+  background: linear-gradient(90deg, #0a2030, #0d4060, #0a2030);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.pool-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 100%
+  );
+  animation: poolShimmer 3s ease-in-out infinite;
+  transform: translateX(-100%);
+}
+@keyframes poolShimmer {
+  to { transform: translateX(100%); }
+}
+
+/* ─── AMENITY CARD ILLUSTRATIONS ─────────────────────────── */
+.amenity-illustration {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+}
+
+/* ─── MAP ILLUSTRATION ───────────────────────────────────── */
+.map-route-line {
+  position: absolute;
+  background: var(--gold);
+  opacity: 0.3;
+  transform-origin: left center;
+}
+
+/* ─── DEVELOPER IMAGE ILLUSTRATIONS ──────────────────────── */
+.dev-building-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(201,169,110,0.2);
+  text-transform: uppercase;
+  flex-direction: column;
+  gap: 8px;
+}
+.dev-building-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+}

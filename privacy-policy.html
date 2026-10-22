@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy | The Curve, Virar | Abhinav Group</title>
+<meta name="description" content="Privacy Policy for The Curve, Virar by Abhinav Group. Learn how we collect, protect, and process your information."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --gold:#B8902A;
+  --gold-light:#E0BA60;
+  --gold-mid:#C9A454;
+  --gold-pale:#F5EDD8;
+  --bg:#FEFCF8;
+  --bg2:#F7F2EA;
+  --bg3:#F0E8DC;
+  --card:#FFFFFF;
+  --card-tint:#FAF5EE;
+  --border:rgba(184,144,42,0.22);
+  --border-dark:rgba(184,144,42,0.4);
+  --dark-text:#1C1410;
+  --body-text:#5A4A3E;
+  --muted:#9C8B7E;
+  --black:#0D0B08;
+  --font-serif:'Playfair Display',serif;
+  --font-sans:'Montserrat',sans-serif;
+  --font-cor:'Cormorant Garamond',serif;
+  --shadow-lg:0 24px 60px rgba(28,20,16,0.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--dark-text);
+  font-family:var(--font-sans);
+  font-weight:400;
+  overflow-x:hidden;
+  line-height:1.7;
+}
+
+/* ═══════════════════ NAVBAR ═══════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;height:84px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5.5%;
+  background:rgba(254,252,248,0.98);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 4px 30px rgba(28,20,16,0.08);
+}
+.nav-logo{display:flex;align-items:center}
+.nav-logo img{height:62px;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{
+  font-size:0.86rem;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--dark-text);position:relative;transition:color 0.3s;white-space:nowrap;
+  text-decoration:none;
+}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:1.5px;background:var(--gold);transition:width 0.4s ease}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--gold)!important}
+.nav-enq{
+  background:linear-gradient(180deg, #FDF0D0 0%, #F2D18A 50%, #D8B263 100%);
+  color:#1C1410!important;padding:13px 32px;font-size:0.82rem!important;
+  font-weight:700!important;letter-spacing:0.16em!important;
+  border:1px solid #C9A454;
+  border-radius:50px;
+  transition:all 0.35s cubic-bezier(0.25, 1, 0.5, 1)!important;
+  white-space:nowrap;
+  box-shadow:0 6px 20px rgba(242,209,138,0.45), inset 0 1px 2px rgba(255,255,255,0.85), 0 2px 4px rgba(0,0,0,0.08);
+}
+.nav-enq:hover{
+  background:linear-gradient(180deg, #FFF5DE 0%, #F7DA99 50%, #DFBA6F 100%);
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(242,209,138,0.65), inset 0 1px 2px rgba(255,255,255,1);
+}
+.nav-enq::after{display:none!important}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.nav-ham span{display:block;width:24px;height:2px;background:var(--dark-text);transition:all 0.3s}
+
+/* Mobile Drawer */
+.mob-overlay{position:fixed;inset:0;background:rgba(28,20,16,0.55);z-index:998;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mob-overlay.open{opacity:1;pointer-events:all}
+.mob-drawer{
+  position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;
+  background:var(--card);border-left:1px solid var(--border);z-index:999;
+  padding:80px 36px 40px;display:flex;flex-direction:column;gap:24px;
+  transition:right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.mob-drawer.open{right:0}
+.mob-close{position:absolute;top:24px;right:24px;background:none;border:none;font-size:1.4rem;color:var(--dark-text);cursor:pointer}
+.mob-links{list-style:none;display:flex;flex-direction:column;gap:18px}
+.mob-links a{color:var(--dark-text);font-size:0.95rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none}
+.mob-links a:hover{color:var(--gold)}
+
+/* ═══════════════════ PAGE HERO HEADER ═══════════════════ */
+.page-hero{
+  padding:140px 5% 60px;
+  background:linear-gradient(180deg, #F9F4EB 0%, #FEFCF8 100%);
+  border-bottom:1px solid rgba(184,144,42,0.18);
+  text-align:center;
+  position:relative;
+}
+.page-hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-mid),transparent);
+}
+.page-eyebrow{
+  font-size:0.92rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:14px;
+}
+.page-title{
+  font-family:var(--font-serif);
+  font-size:clamp(2.5rem, 4.4vw, 3.8rem);
+  font-weight:600;
+  color:var(--dark-text);
+  line-height:1.15;
+}
+.page-title .gold{color:var(--gold)}
+.page-sub{
+  font-size:1.12rem;color:var(--body-text);font-weight:400;margin-top:14px;
+}
+
+/* ═══════════════════ CONTENT SECTION ═══════════════════ */
+.legal-sec{
+  padding:60px 5% 100px;
+  background:var(--bg);
+}
+.legal-card{
+  max-width:1040px;margin:0 auto;
+  background:linear-gradient(180deg, #FFFFFF 0%, #FCF9F3 100%);
+  border:1px solid rgba(184,144,42,0.25);
+  border-radius:24px;
+  padding:64px 60px;
+  box-shadow:0 20px 60px rgba(28,20,16,0.06);
+}
+.legal-intro{
+  padding-bottom:32px;margin-bottom:36px;
+  border-bottom:1px solid rgba(184,144,42,0.2);
+}
+.legal-intro p{
+  font-size:1.08rem;line-height:1.95;color:var(--body-text);margin-bottom:18px;
+}
+.legal-intro p:last-child{margin-bottom:0}
+.legal-block{
+  margin-bottom:38px;
+  padding-bottom:36px;
+  border-bottom:1px solid rgba(184,144,42,0.14);
+}
+.legal-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.legal-h3{
+  font-family:var(--font-serif);
+  font-size:clamp(1.45rem, 2.2vw, 1.85rem);
+  font-weight:600;
+  color:var(--dark-text);
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.legal-h3 .gold{color:var(--gold);font-weight:700}
+.legal-block p{
+  font-size:1.04rem;line-height:1.9;color:var(--body-text);margin-bottom:14px;
+}
+.legal-block p:last-child{margin-bottom:0}
+.legal-link{
+  color:var(--gold);text-decoration:none;font-weight:600;transition:color 0.2s;
+}
+.legal-link:hover{text-decoration:underline;color:var(--gold-mid)}
+.legal-list{
+  list-style:none;margin:18px 0;display:flex;flex-direction:column;gap:12px;
+}
+.legal-list li{
+  font-size:1.04rem;color:var(--body-text);position:relative;padding-left:26px;line-height:1.75;
+}
+.legal-list li::before{
+  content:'✦';position:absolute;left:0;top:0;color:var(--gold);font-size:0.85rem;
+}
+
+/* ═══════════════════ BUTTON 3D GOLD ═══════════════════ */
+.btn-3d-gold{
+  padding:16px 42px;
+  border-radius:50px;
+  background:linear-gradient(180deg, #FBE6B8 0%, #E3BC6D 50%, #C8993E 100%);
+  color:#181108;
+  border:1px solid #B88726;
+  font-family:var(--font-sans);
+  font-size:0.86rem;
+  font-weight:700;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  transition:all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor:pointer;
+  box-shadow:0 8px 26px rgba(184,144,42,0.38), inset 0 1px 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.12);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
+.btn-3d-gold:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(184,144,42,0.5), inset 0 1px 2px rgba(255,255,255,1);
+  background:linear-gradient(180deg, #FFF0CA 0%, #E8C376 50%, #D4A346 100%);
+}
+
+/* ═══════════════════ FOOTER ═══════════════════ */
+footer{background:var(--dark-text);padding:96px 5% 72px;position:relative}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,144,42,0.4),transparent)}
+.footer-wrap{max-width:1440px;margin:0 auto}
+.footer-disclaimer{font-size:clamp(1.18rem, 1.4vw, 1.32rem);color:rgba(245,238,228,0.85);line-height:2.0;margin-bottom:36px;padding-bottom:34px;border-bottom:1px solid rgba(184,144,42,0.3)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.footer-links{display:flex;gap:36px;list-style:none}
+.footer-links a{font-size:1.18rem;font-weight:600;color:rgba(245,238,228,0.88);text-decoration:none;transition:color 0.3s;letter-spacing:0.02em}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:1.15rem;color:rgba(245,238,228,0.72);font-weight:400}
+.footer-rera{font-size:1.2rem;font-weight:700;color:var(--gold);letter-spacing:0.04em}
+
+/* ═══════════════════ WHATSAPP FLOAT ═══════════════════ */
+.wa-btn{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  width:56px;height:56px;background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 24px rgba(37,211,102,0.45);transition:transform 0.3s,box-shadow 0.3s;
+  text-decoration:none;
+}
+.wa-btn:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,0.6)}
+
+/* ═══════════════════ MODAL ═══════════════════ */
+.modal-ov{position:fixed;inset:0;background:rgba(28,20,16,0.7);z-index:9990;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity 0.4s,visibility 0.4s;backdrop-filter:blur(6px)}
+.modal-ov.open{opacity:1;visibility:visible}
+.modal-box{
+  background:linear-gradient(180deg, #FFFFFF 0%, #FAF5EC 100%);
+  border:1px solid rgba(184, 144, 42, 0.38);
+  border-radius:24px;
+  width:100%;
+  max-width:500px;
+  position:relative;
+  transform:scale(0.93) translateY(20px);
+  transition:all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  max-height:92vh;
+  overflow-y:auto;
+  box-shadow:0 30px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(184,144,42,0.2), inset 0 1px 2px #fff;
+}
+.modal-ov.open .modal-box{transform:none}
+.modal-cls{
+  position:absolute;top:20px;right:20px;width:38px;height:38px;
+  background:#FFFFFF;border:1px solid rgba(184,144,42,0.3);border-radius:50%;
+  color:var(--dark-text);display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;cursor:pointer;transition:all 0.3s ease;
+  box-shadow:0 4px 12px rgba(28,20,16,0.08);
+  z-index:10;
+}
+.modal-cls:hover{border-color:var(--gold);color:var(--gold);transform:scale(1.1);background:var(--gold-pale)}
+.modal-in{padding:48px 44px}
+.modal-ttl{
+  font-family:var(--font-serif);
+  font-size:clamp(2.3rem, 3.6vw, 3.1rem);
+  font-weight:700;
+  color:var(--dark-text);
+  margin-bottom:8px;
+  line-height:1.15;
+}
+.modal-ttl .gold{color:var(--gold)}
+.modal-sub{
+  font-size:0.95rem;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:block;
+  margin-bottom:30px;
+}
+.f-group{margin-bottom:18px}
+.f-input{
+  width:100%;background:#FFFFFF;border:1px solid rgba(184,144,42,0.25);
+  border-radius:12px;color:var(--dark-text);font-family:var(--font-sans);
+  font-size:1.02rem;padding:16px 20px;outline:none;transition:all 0.3s;
+}
+.f-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,144,42,0.15)}
+.f-note{font-size:0.86rem;color:var(--muted);margin:16px 0 24px;line-height:1.7}
+.f-submit.btn-3d-gold{width:100%;justify-content:center;padding:18px 36px;font-size:0.96rem;cursor:pointer}
+.modal-ok{display:none;text-align:center;flex-direction:column;align-items:center;gap:14px;padding:20px 0}
+.modal-ok.show{display:flex}
+.ok-check{width:60px;height:60px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gold)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .legal-card{padding:40px 24px;border-radius:18px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:14px}
+  .modal-in{padding:36px 22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images vedios/Abhinav Group logo.png" alt="Abhinav Group" loading="eager"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#hero">Home</a></li>
+    <li><a href="index.html#why">Why The Curve</a></li>
+    <li><a href="index.html#amenities">Amenities</a></li>
+    <li><a href="index.html#floorplans">Configurations</a></li>
+    <li><a href="index.html#location">Location</a></li>
+    <li><a href="index.html#developer">About Developer</a></li>
+    <li><a href="#" class="nav-enq" id="nav-enq-btn">Enquire Now</a></li>
+  </ul>
+  <button class="nav-ham" id="nav-ham" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="mob-overlay" id="mob-ov"></div>
+<div class="mob-drawer" id="mob-dr">
+  <button class="mob-close" id="mob-cls">✕</button>
+  <ul class="mob-links">
+    <li><a href="index.html#hero">Home</a></li>
+    <li><a href="index.html#why">Why The Curve</a></li>
+    <li><a href="index.html#amenities">Amenities</a></li>
+    <li><a href="index.html#floorplans">Configurations</a></li>
+    <li><a href="index.html#location">Location</a></li>
+    <li><a href="index.html#developer">About Developer</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ HERO BANNER ═══════════════════ -->
+<header class="page-hero">
+  <span class="page-eyebrow">LEGAL &amp; COMPLIANCE</span>
+  <h1 class="page-title">Privacy <span class="gold">Policy</span></h1>
+  <p class="page-sub">The Curve · Virar · Abhinav Group</p>
+</header>
+
+<!-- ═══════════════════ LEGAL CONTENT ═══════════════════ -->
+<main class="legal-sec">
+  <div class="legal-card">
+    <div class="legal-intro">
+      <p>At <strong>The Curve Virar</strong>, we respect your privacy and are committed to protecting the personal information you provide to us through our website, <a href="https://thecurvevirar.com/" target="_blank" rel="noopener" class="legal-link">https://thecurvevirar.com/</a>.</p>
+      <p>This Privacy Policy explains how we collect, use, store, protect, and process your personal information when you visit our website, submit an enquiry form, request project information, schedule a site visit, or contact us through phone, email, WhatsApp, or other communication channels.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3">About The Curve Virar</h3>
+      <p>The Curve is a residential real estate project in Virar associated with <strong>ABHINAV REALTY SPACES LLP</strong>, a group company of Abhinav Group.</p>
+      <p>ABHINAV REALTY SPACES LLP and its authorised representatives/service providers may collect and process information submitted through this website for the purpose of responding to enquiries, providing information about The Curve, assisting with site visits, and providing relevant project-related communication.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">1.</span> Information We Collect</h3>
+      <p>We may collect personal information including:</p>
+      <ul class="legal-list">
+        <li>Full Name</li>
+        <li>Mobile Number</li>
+        <li>Email Address</li>
+        <li>Location Details</li>
+        <li>Property Preferences and Requirements</li>
+        <li>Any information voluntarily shared through enquiry forms or WhatsApp</li>
+      </ul>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">2.</span> How We Use Your Information</h3>
+      <p>The information collected from you may be used for:</p>
+      <ul class="legal-list">
+        <li>Responding to your property enquiries</li>
+        <li>Providing project details, pricing, offers, and updates</li>
+        <li>Scheduling site visits and customer meetings</li>
+        <li>Sending communications via phone calls, WhatsApp, SMS, or email</li>
+        <li>Improving our website and customer experience</li>
+      </ul>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">3.</span> Consent for Communication</h3>
+      <p>By submitting your details through our lead forms or contacting us through WhatsApp or phone, you provide your consent to receive calls, WhatsApp messages, SMS, and emails from The Curve Virar or its authorized representatives regarding property-related information and promotional updates.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">4.</span> Data Protection and Security</h3>
+      <p>We implement reasonable security measures to protect your personal information. However, no online transmission or electronic storage method can guarantee complete security, and users share information at their own discretion.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">5.</span> Sharing of Information</h3>
+      <p>We do not sell, trade, or rent your personal information to third parties. Information may be shared with authorized business partners, service providers, or legal authorities when necessary to provide services or comply with applicable laws.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">6.</span> Cookies and Website Analytics</h3>
+      <p>Our website may use cookies and analytics tools to understand visitor behavior, improve website performance, and enhance user experience. You can manage cookie preferences through your browser settings.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">7.</span> Third-Party Services</h3>
+      <p>Our website may contain links to third-party services such as WhatsApp, Google Maps, or other external platforms. We are not responsible for the privacy practices or content of such third-party websites.</p>
+    </div>
+
+    <div class="legal-block">
+      <h3 class="legal-h3"><span class="gold">8.</span> Updates to This Privacy Policy</h3>
+      <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and continued use of the website indicates acceptance of the revised policy.</p>
+    </div>
+  </div>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-wrap">
+    <p class="footer-disclaimer"><strong style="color:var(--gold);">Disclaimer:</strong> The Curve, Virar is a project by ABHINAV REALTY SPACES LLP, under the Abhinav Group. All project details, images, prices, specifications, and availability are subject to change. Please verify the latest information, approvals, and RERA details with an authorised representative before making any purchase decision.</p>
+    <div class="footer-bottom">
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 Abhinav Group. All Rights Reserved.</span>
+      <span class="footer-rera">RERA Registration Number: PR1240002600667</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ WHATSAPP FLOAT ═══════════════════ -->
+<a href="https://api.whatsapp.com/send/?phone=918530285005&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="wa-btn" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.18-.008-.382-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═══════════════════ MODAL ═══════════════════ -->
+<div class="modal-ov" id="modal-ov">
+  <div class="modal-box">
+    <button class="modal-cls" id="modal-cls">✕</button>
+    <div class="modal-in">
+      <div id="modal-form-wrap">
+        <h2 class="modal-ttl">Get In <span class="gold">Touch</span></h2>
+        <span class="modal-sub">The Curve · Virar · Abhinav Group</span>
+        <form id="modal-form" novalidate>
+          <div class="f-group"><input type="text" class="f-input" id="m-name" placeholder="Full Name" required autocomplete="name"/></div>
+          <div class="f-group"><input type="email" class="f-input" id="m-email" placeholder="Your Email" autocomplete="email"/></div>
+          <div class="f-group"><input type="tel" class="f-input" id="m-phone" placeholder="Phone Number" required autocomplete="tel"/></div>
+          <p class="f-note">By submitting your personal information, you agree to our Privacy Policy and Terms &amp; Conditions.*</p>
+          <button type="submit" class="btn-3d-gold f-submit">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Submit Enquiry
+          </button>
+        </form>
+      </div>
+      <div class="modal-ok" id="modal-ok">
+        <div class="ok-check">✓</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--dark-text);font-weight:700;">Thank You!</h3>
+        <p class="body-txt" style="text-align:center;font-size:0.95rem;color:var(--body-text);">Our team will contact you within 24 hours.</p>
+        <a href="https://api.whatsapp.com/send/?phone=918530285005&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="btn-3d-gold" style="margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:14px 32px;font-size:0.86rem;">Continue on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Drawer */
+const ham = document.getElementById('nav-ham'), dr = document.getElementById('mob-dr'), ov = document.getElementById('mob-ov'), cls = document.getElementById('mob-cls');
+const openDr = () => { dr.classList.add('open'); ov.classList.add('open'); };
+const closeDr = () => { dr.classList.remove('open'); ov.classList.remove('open'); };
+if (ham) ham.addEventListener('click', openDr);
+if (cls) cls.addEventListener('click', closeDr);
+if (ov) ov.addEventListener('click', closeDr);
+
+/* Modal */
+const modalOv = document.getElementById('modal-ov'), modalCls = document.getElementById('modal-cls');
+const openModal = () => { modalOv.classList.add('open'); document.body.style.overflow='hidden'; };
+const closeModal = () => { modalOv.classList.remove('open'); document.body.style.overflow=''; };
+const navEnqBtn = document.getElementById('nav-enq-btn');
+if (navEnqBtn) navEnqBtn.addEventListener('click', e => { e.preventDefault(); openModal(); });
+if (modalCls) modalCls.addEventListener('click', closeModal);
+if (modalOv) modalOv.addEventListener('click', e => { if (e.target === modalOv) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* Form Submit */
+function submitForm(name, phone, config) {
+  const msg = encodeURIComponent(`Hi, I am interested in The Curve, Virar.\n\nName: ${name}\nPhone: ${phone}\nConfiguration: ${config || 'To be decided'}`);
+  window.open(`https://api.whatsapp.com/send/?phone=918530285005&text=${msg}&type=phone_number&app_absent=0`, '_blank');
+}
+document.getElementById('modal-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const n = document.getElementById('m-name').value.trim(), p = document.getElementById('m-phone').value.trim();
+  if (!n || !p) return;
+  document.getElementById('modal-form-wrap').style.display='none';
+  document.getElementById('modal-ok').classList.add('show');
+  setTimeout(() => submitForm(n, p, 'General Enquiry'), 800);
+});
+</script>
+</body>
+</html>

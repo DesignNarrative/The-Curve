@@ -1,0 +1,12 @@
+# User requested exclusion of images and videos directory
+images vedios/
+"images vedios"/
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+.vscode/
+.idea/
