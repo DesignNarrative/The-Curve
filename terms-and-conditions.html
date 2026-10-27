@@ -437,17 +437,30 @@ if (modalOv) modalOv.addEventListener('click', e => { if (e.target === modalOv) 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 /* Form Submit */
-function submitForm(name, phone, config) {
-  const msg = encodeURIComponent(`Hi, I am interested in The Curve, Virar.\n\nName: ${name}\nPhone: ${phone}\nConfiguration: ${config || 'To be decided'}`);
+async function submitForm(name, email, phone, source = 'Terms and Conditions Page') {
+  try {
+    fetch('https://formsubmit.co/ajax/abhinavgroup2026@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `New Lead: The Curve, Virar - ${name} (${phone})`,
+        Name: name, Email: email || 'Not Provided', Phone: phone,
+        Project: 'The Curve, Virar', Source: source,
+        Timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      })
+    }).catch(err => console.log('Mail dispatch note:', err));
+  } catch(e) { console.log(e); }
+
+  const msg = encodeURIComponent(`Hi, I am interested in The Curve, Virar.\n\nName: ${name}\nEmail: ${email || 'Not Provided'}\nPhone: ${phone}\nEnquiry Type: ${source}`);
   window.open(`https://api.whatsapp.com/send/?phone=918530285005&text=${msg}&type=phone_number&app_absent=0`, '_blank');
 }
 document.getElementById('modal-form').addEventListener('submit', e => {
   e.preventDefault();
-  const n = document.getElementById('m-name').value.trim(), p = document.getElementById('m-phone').value.trim();
+  const n = document.getElementById('m-name').value.trim(), em = document.getElementById('m-email') ? document.getElementById('m-email').value.trim() : '', p = document.getElementById('m-phone').value.trim();
   if (!n || !p) return;
   document.getElementById('modal-form-wrap').style.display='none';
   document.getElementById('modal-ok').classList.add('show');
-  setTimeout(() => submitForm(n, p, 'General Enquiry'), 800);
+  setTimeout(() => submitForm(n, em, p, 'Terms & Conditions Page Modal'), 600);
 });
 </script>
 </body>

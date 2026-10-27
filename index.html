@@ -144,15 +144,15 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 
 /* Hero Top Caption — 3D Luxury Text in One Line */
 .hero-top-caption{
-  position:absolute;top:116px;left:50%;transform:translateX(-50%);
-  z-index:4;text-align:center;width:92%;max-width:1440px;
+  position:absolute;top:108px;left:50%;transform:translateX(-50%);
+  z-index:4;text-align:center;width:auto;max-width:min(90%, 960px);
   pointer-events:none;
 }
 .hero-3d-text{
   font-family:var(--font-serif);
-  font-size:clamp(1.45rem, 3.1vw, 2.9rem);
+  font-size:clamp(1.25rem, 2.4vw, 2.4rem);
   font-weight:700;
-  letter-spacing:0.04em;
+  letter-spacing:0.03em;
   white-space:nowrap;
   display:inline-block;
   background:linear-gradient(180deg, #FFFFFF 0%, #FFF3DB 28%, #E4BE72 60%, #9D7321 82%, #DFBA6F 100%);
@@ -165,26 +165,67 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
          drop-shadow(0 18px 36px rgba(0,0,0,0.85));
 }
 
-/* Hero Emblem Right — Moved more up and slightly to the right */
+/* Hero Top Right — MahaRERA Registration Label with QR Code below Enquire Now */
+.hero-top-badge{
+  position:absolute;top:102px;right:2.5%;
+  z-index:4;display:block;
+  border-radius:10px;overflow:hidden;
+  border:1px solid rgba(212,170,82,0.55);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  background:#fff;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+  line-height:0;
+}
+.hero-top-badge:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 14px 36px rgba(0,0,0,0.7), 0 0 20px rgba(212,170,82,0.45);
+}
+.hero-top-badge img{
+  width:clamp(210px, 18vw, 290px);
+  height:auto;
+  display:block;
+}
+
+/* Hero Center-Right Crown Emblem — vertically centered on the right side */
 .hero-emblem-right{
-  position:absolute;top:clamp(110px, 18vh, 170px);right:3.5%;
+  position:absolute;top:50%;transform:translateY(-50%);right:4%;
   z-index:4;pointer-events:none;
   display:flex;align-items:center;justify-content:center;
 }
 .hero-emblem-right img{
-  height:clamp(140px, 20vh, 210px);
+  height:clamp(120px, 17vh, 180px);
   width:auto;
   object-fit:contain;
-  filter:drop-shadow(0 10px 32px rgba(0,0,0,0.7)) drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+  filter:drop-shadow(0 12px 36px rgba(0,0,0,0.8)) drop-shadow(0 2px 12px rgba(0,0,0,0.6));
   transition:transform 0.4s ease;
 }
 
+/* Hero Bottom Right — Luxury 2% Home Ownership Banner */
+.hero-bottom-badge{
+  position:absolute;bottom:24px;right:4%;
+  z-index:4;display:block;
+  border-radius:10px;overflow:hidden;
+  border:1px solid rgba(212,170,82,0.55);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+  line-height:0;
+  cursor:pointer;
+}
+.hero-bottom-badge:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 14px 36px rgba(0,0,0,0.7), 0 0 20px rgba(212,170,82,0.45);
+}
+.hero-bottom-badge img{
+  width:clamp(260px, 22vw, 360px);
+  height:auto;
+  display:block;
+}
+
 /* Hero bottom bar */
-.hero-bottom{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;padding:20px 5% 28px;background:linear-gradient(0deg,rgba(0,0,0,0.65) 0%,transparent 100%)}
-.hero-loc{display:flex;align-items:center;gap:10px}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;padding:20px 5% 28px;background:linear-gradient(0deg,rgba(0,0,0,0.65) 0%,transparent 100%);pointer-events:none}
+.hero-loc{display:flex;align-items:center;gap:10px;pointer-events:auto}
 .hero-loc-pin{width:36px;height:36px;border:1px solid rgba(212,170,82,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(0,0,0,0.3)}
 .hero-loc-name{font-size:0.82rem;font-weight:400;color:#fff;letter-spacing:0.04em;display:block}
-.hero-loc-rera{font-size:0.6rem;color:#D4AA52;letter-spacing:0.14em;margin-top:3px;display:block}
 
 /* ══════════════════════════════════════════════════
    SECTION BASE — LIGHT
@@ -396,9 +437,9 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 @keyframes amScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 .am-card{
-  width:380px;height:290px;flex-shrink:0;
+  width:440px;height:420px;flex-shrink:0;
   position:relative;overflow:hidden;
-  border-radius:8px;
+  border-radius:12px;
   border:1px solid rgba(184,144,42,0.22);
   box-shadow:0 12px 36px rgba(28,20,16,0.08);
   transition:transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.45s ease, border-color 0.45s ease;
@@ -503,9 +544,52 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
   transition:transform 0.1s ease;transform-style:preserve-3d;
   box-shadow:var(--shadow-lg);
 }
-.fp-img{width:100%;height:100%;object-fit:contain;padding:24px;transition:opacity 0.45s ease,transform 0.45s ease}
-.fp-img.fade-out{opacity:0;transform:scale(0.96)}
-.fp-img.fade-in{opacity:1;transform:scale(1)}
+.fp-img{
+  width:100%;height:100%;object-fit:contain;padding:24px;
+  filter:blur(4px);
+  transform:scale(1.02);
+  user-select:none;
+  pointer-events:none;
+  transition:opacity 0.45s ease,transform 0.45s ease;
+}
+.fp-img.fade-out{opacity:0;transform:scale(0.98)}
+.fp-img.fade-in{opacity:1;transform:scale(1.02)}
+.fp-blur-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(28,20,16,0.08);
+  z-index:2;
+  cursor:pointer;
+  transition:background 0.3s ease;
+}
+.fp-blur-overlay:hover{
+  background:rgba(28,20,16,0.15);
+}
+.fp-blur-overlay #fp-know-more{
+  background:linear-gradient(180deg, #1C1410 0%, #0D0907 100%);
+  color:#F2D18A;
+  border:1.5px solid #D4AA52;
+  box-shadow:0 14px 38px rgba(0,0,0,0.6), 0 0 24px rgba(212,170,82,0.35), inset 0 1px 1px rgba(255,255,255,0.2);
+  padding:16px 44px;
+  font-size:0.96rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  border-radius:50px;
+  cursor:pointer;
+  transition:all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.fp-blur-overlay #fp-know-more:hover{
+  background:linear-gradient(180deg, #2D1F17 0%, #150E0B 100%);
+  color:#FFFFFF;
+  border-color:#F5D285;
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 20px 48px rgba(0,0,0,0.7), 0 0 32px rgba(212,170,82,0.55);
+}
 
 .fp-info{display:flex;flex-direction:column;justify-content:center}
 .fp-type-big{
@@ -526,6 +610,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
   margin-bottom:34px;
   display:block;
 }
+.fp-btns{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .btn-3d-gold{
   padding:16px 42px;
   border-radius:50px;
@@ -619,7 +704,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 .loc-name{font-size:1.02rem;color:var(--dark-text);font-weight:500;letter-spacing:0.01em}
 .loc-time{font-family:var(--font-cor);font-size:1.32rem;font-weight:600;color:var(--gold);white-space:nowrap;margin-left:14px}
 
-.loc-map-col{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
+.loc-map-col{position:relative;width:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 .loc-map-wrap{
   position:relative;
   width:100%;
@@ -651,6 +736,15 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
   text-decoration:none;
 }
 .loc-map-btn:hover{transform:translateX(-50%) translateY(-3px)}
+.loc-map-disclaimer{
+  font-size:0.74rem;
+  color:var(--muted);
+  line-height:1.55;
+  margin-top:10px;
+  font-style:italic;
+  letter-spacing:0.01em;
+  width:100%;
+}
 
 /* ══════════════════════════════════════════════════
    DEVELOPER
@@ -703,24 +797,87 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 .dev-img-wrap{
   position:relative;
   width:100%;
-  aspect-ratio:1672 / 940;
+  aspect-ratio:1672 / 941;
   border-radius:16px;
   overflow:hidden;
   border:1px solid rgba(184,144,42,0.3);
   box-shadow:0 18px 48px rgba(28,20,16,0.12);
-  background:#EAE2D5;
+  background:transparent;
   transition:all 0.4s ease;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:block;
+  line-height:0;
 }
 .dev-img-wrap:hover{
   transform:translateY(-3px);
   box-shadow:0 22px 54px rgba(184,144,42,0.22);
   border-color:var(--gold);
 }
-.dev-img{width:100%;height:100%;object-fit:contain;display:block}
+.dev-img{width:100%;height:100%;object-fit:cover;display:block}
 .dev-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* ══════════════════════════════════════════════════
+   PROJECT FILM / VIDEO TOUR
+══════════════════════════════════════════════════ */
+#video-tour{
+  background:linear-gradient(180deg, #1C1410 0%, #120C09 100%);
+  padding:90px 4%;
+  position:relative;
+  overflow:hidden;
+}
+#video-tour::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-mid),transparent);
+}
+.vid-inner{max-width:1200px;margin:0 auto}
+.vid-head{text-align:center;margin-bottom:38px}
+.vid-eyebrow{font-size:0.88rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.vid-title{font-family:var(--font-serif);font-size:clamp(2.1rem,3.8vw,3.2rem);font-weight:500;line-height:1.2;color:#FFFFFF}
+.vid-title .gold{color:var(--gold)}
+.vid-sub{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,0.72);font-weight:300;max-width:680px;margin:14px auto 0}
+
+.vid-player-wrap{
+  max-width:1040px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.vid-player{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(212,170,82,0.4);
+  box-shadow:0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(212,170,82,0.15);
+  background:#000;
+  transition:transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.vid-player:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:0 30px 70px rgba(0,0,0,0.7), 0 0 50px rgba(212,170,82,0.25);
+}
+.vid-player iframe{
+  width:100%;
+  height:100%;
+  border:none;
+  display:block;
+}
+.vid-action-bar{
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.vid-yt-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
 
 /* ══════════════════════════════════════════════════
    CONTACT CTA
@@ -802,6 +959,98 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
   padding:18px 36px;
   font-size:0.96rem;
   cursor:pointer;
+}
+
+/* ══════════════════════════════════════════════════
+   FAQ SECTION
+══════════════════════════════════════════════════ */
+#faq{background:var(--bg2);padding:90px 4%;position:relative}
+#faq::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-mid),transparent)}
+.faq-inner{max-width:960px;margin:0 auto}
+.faq-head{text-align:center;margin-bottom:46px}
+.faq-eyebrow{font-size:0.92rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.faq-title{font-family:var(--font-serif);font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:500;line-height:1.2;color:var(--dark-text)}
+.faq-title .gold{color:var(--gold)}
+.faq-list{display:flex;flex-direction:column;gap:14px}
+.faq-item{
+  background:linear-gradient(180deg, #FFFFFF 0%, #FDFBF7 100%);
+  border:1px solid rgba(184,144,42,0.22);
+  border-radius:14px;
+  overflow:hidden;
+  transition:all 0.3s ease;
+  box-shadow:0 4px 18px rgba(28,20,16,0.04);
+}
+.faq-item:hover{
+  border-color:var(--gold);
+  box-shadow:0 8px 24px rgba(184,144,42,0.12);
+}
+.faq-item.active{
+  border-color:var(--gold);
+  box-shadow:0 10px 28px rgba(184,144,42,0.16);
+}
+.faq-q{
+  width:100%;
+  padding:22px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-align:left;
+  font-family:var(--font-serif);
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--dark-text);
+  transition:color 0.3s ease;
+}
+.faq-item.active .faq-q, .faq-q:hover{
+  color:var(--gold);
+}
+.faq-q-text{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.faq-q-num{
+  color:var(--gold);
+  font-family:var(--font-sans);
+  font-size:0.95rem;
+  font-weight:700;
+  flex-shrink:0;
+}
+.faq-ico{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:1px solid rgba(184,144,42,0.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  transition:transform 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+  background:#FAF6EE;
+  color:var(--gold);
+}
+.faq-item.active .faq-ico{
+  transform:rotate(180deg);
+  background:var(--gold);
+  color:#FFFFFF;
+  border-color:var(--gold);
+}
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-a-in{
+  padding:0 28px 24px;
+  font-family:var(--font-sans);
+  font-size:1.02rem;
+  line-height:1.85;
+  color:var(--body-text);
+  font-weight:300;
 }
 
 /* ══════════════════════════════════════════════════
@@ -898,13 +1147,17 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .nav-ham{display:flex}
   #navbar{height:80px;padding:0 5%}
   .nav-logo img{height:58px}
-  .hero-top-caption{top:92px;width:95%}
-  .hero-3d-text{font-size:clamp(0.9rem, 3.8vw, 1.35rem);letter-spacing:0.02em}
-  .hero-emblem-right{right:2.5%;top:clamp(96px, 16vh, 145px)}
-  .hero-emblem-right img{height:clamp(95px, 14vh, 135px)}
+  .hero-top-caption{top:88px;width:95%}
+  .hero-3d-text{font-size:clamp(0.85rem, 3.4vw, 1.25rem);letter-spacing:0.02em}
+  .hero-top-badge{top:124px;right:2.5%}
+  .hero-top-badge img{width:clamp(165px, 24vw, 220px)}
+  .hero-emblem-right{right:4%;top:50%;transform:translateY(-50%)}
+  .hero-emblem-right img{height:clamp(95px, 14vh, 130px)}
+  .hero-bottom-badge{bottom:22px;right:4%}
+  .hero-bottom-badge img{width:clamp(190px, 28vw, 260px)}
   .dev-stats{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
-  .am-card{width:290px;height:230px}
+  .am-card{width:340px;height:325px}
   .am-side-arr{width:44px;height:44px}
   .am-side-arr.prev{left:10px}
   .am-side-arr.next{right:10px}
@@ -916,11 +1169,18 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 }
 @media(max-width:480px){
   .sec{padding:56px 5%}
-  .hero-top-caption{top:88px;width:96%}
-  .hero-3d-text{font-size:clamp(0.76rem, 3.4vw, 1.05rem);letter-spacing:0.01em}
-  .hero-emblem-right{right:2%;top:98px}
-  .hero-emblem-right img{height:90px}
-  .hero-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+  .am-card{width:290px;height:278px}
+  .hero-top-caption{top:84px;width:96%}
+  .hero-3d-text{font-size:clamp(0.72rem, 3.1vw, 0.95rem);letter-spacing:0.01em}
+  .hero-top-badge{top:116px;right:2.5%}
+  .hero-top-badge img{width:clamp(130px, 36vw, 160px)}
+  .hero-emblem-right{right:3.5%;top:50%;transform:translateY(-50%)}
+  .hero-emblem-right img{height:85px}
+  .hero-bottom-badge{bottom:18px;right:4%}
+  .hero-bottom-badge img{width:clamp(145px, 42vw, 185px)}
+  .hero-bottom{padding:16px 4% 20px;flex-direction:row;align-items:center}
+  .hero-loc-pin{width:32px;height:32px}
+  .hero-loc-name{font-size:0.75rem}
   .fp-btns,.dev-btns{flex-direction:column}
   .btn-gold,.btn-outline-dark{justify-content:center;width:100%}
   .form-box{padding:28px 20px}
@@ -989,11 +1249,22 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <span class="hero-3d-text">Where Every Day Feels Like Paradise.</span>
   </div>
 
-  <!-- Center Right Enlarged Luxury Emblem -->
+  <!-- Top Right MahaRERA Badge Below Enquire Now Button -->
+  <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" class="hero-top-badge" title="MahaRERA Registration & QR Code">
+    <img src="images vedios/Maharashtra Registration Label with QR Code.png" alt="Maharashtra Registration Label with QR Code" loading="eager"/>
+  </a>
+
+  <!-- Mid Center Right Luxury Emblem -->
   <div class="hero-emblem-right">
     <img src="images vedios/Crown Curve Luxury Emblem.png" alt="Crown Curve Luxury Emblem"/>
   </div>
 
+  <!-- Bottom Right Luxury 2% Home Ownership Banner -->
+  <a href="#" class="hero-bottom-badge" id="hero-offer-btn" title="Luxury 2% Home Ownership Offer — Enquire Now">
+    <img src="images vedios/Luxury 2% Home Ownership Banner.png" alt="Luxury 2% Home Ownership Banner" loading="eager"/>
+  </a>
+
+  <!-- Bottom Left Location -->
   <div class="hero-bottom">
     <div class="hero-loc">
       <div class="hero-loc-pin">
@@ -1001,7 +1272,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
       </div>
       <div>
         <span class="hero-loc-name">Virar West, Mumbai</span>
-        <span class="hero-loc-rera">MahaRERA — PR1240002600667</span>
       </div>
     </div>
   </div>
@@ -1022,6 +1292,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     </div>
 
     <div class="why-wrap">
+      <button class="am-side-arr prev" id="w-prev" aria-label="Previous card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
       <div class="why-track" id="why-track">
         <!-- Set 1 -->
         <div class="why-card">
@@ -1076,6 +1349,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           <p class="why-card-desc">From rooftop leisure zones to wellness spaces and family recreation — every age group finds their comfort here.</p>
         </div>
       </div>
+      <button class="am-side-arr next" id="w-next" aria-label="Next card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -1113,25 +1389,25 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
       <div class="am-track" id="t-ground">
-        <div class="am-card"><img src="images vedios/Luxury Pavilion Amid Tropical Towers.png" alt="Club House" loading="lazy"/><div class="am-label">Club House</div></div>
-        <div class="am-card"><img src="images vedios/Luxury Sunset Waterfall Entrance.png" alt="Aqua Hub" loading="lazy"/><div class="am-label">Aqua Hub</div></div>
-        <div class="am-card"><img src="images vedios/Golden-Hour Playground at Modern Residences.png" alt="Adventure Zone" loading="lazy"/><div class="am-label">Adventure Zone</div></div>
-        <div class="am-card"><img src="images vedios/Pastel Birthday Celebration Hall.png" alt="Grand Ballroom" loading="lazy"/><div class="am-label">Grand Ballroom</div></div>
-        <div class="am-card"><img src="images vedios/Golden Courtyard Amidst Modern Towers.png" alt="Outdoor Gathering Lawn" loading="lazy"/><div class="am-label">Outdoor Gathering Lawn</div></div>
-        <div class="am-card"><img src="images vedios/Sunlit Luxury Gym Training Floor.png" alt="Fitness Zone" loading="lazy"/><div class="am-label">Fitness Zone</div></div>
-        <div class="am-card"><img src="images vedios/Golden-Hour Luxury Entrance with Tropical Landscaping.png" alt="Walking Track" loading="lazy"/><div class="am-label">Walking Track</div></div>
-        <div class="am-card"><img src="images vedios/Golden-Hour Urban Racquet Court.png" alt="Badminton Court" loading="lazy"/><div class="am-label">Badminton Court</div></div>
-        <div class="am-card"><img src="images vedios/Sunlit Scandinavian Living Room.png" alt="Social Lounge" loading="lazy"/><div class="am-label">Social Lounge</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Cantilevered Clubhouse Amid Towers.png" alt="Club House" loading="lazy"/><div class="am-label">Club House</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Symmetrical Luxury Waterfall Entrance.png" alt="Aqua Hub" loading="lazy"/><div class="am-label">Aqua Hub</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunny Urban Playground Courtyard.png" alt="Adventure Zone" loading="lazy"/><div class="am-label">Adventure Zone</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Elegant Fifth Birthday Celebration Hall.png" alt="Grand Ballroom" loading="lazy"/><div class="am-label">Grand Ballroom</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Courtyard with Lush Landscaping.png" alt="Outdoor Gathering Lawn" loading="lazy"/><div class="am-label">Outdoor Gathering Lawn</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Warm-Lit Gym Interior.png" alt="Fitness Zone" loading="lazy"/><div class="am-label">Fitness Zone</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Modern Building and Landscaped Plaza.png" alt="Walking Track" loading="lazy"/><div class="am-label">Walking Track</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Indoor Paddle Court Duo.png" alt="Badminton Court" loading="lazy"/><div class="am-label">Badminton Court</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Modern Living Room with Greenery.png" alt="Social Lounge" loading="lazy"/><div class="am-label">Social Lounge</div></div>
         <!-- Duplicate -->
-        <div class="am-card"><img src="images vedios/Luxury Pavilion Amid Tropical Towers.png" alt="Club House" loading="lazy"/><div class="am-label">Club House</div></div>
-        <div class="am-card"><img src="images vedios/Luxury Sunset Waterfall Entrance.png" alt="Aqua Hub" loading="lazy"/><div class="am-label">Aqua Hub</div></div>
-        <div class="am-card"><img src="images vedios/Golden-Hour Playground at Modern Residences.png" alt="Adventure Zone" loading="lazy"/><div class="am-label">Adventure Zone</div></div>
-        <div class="am-card"><img src="images vedios/Pastel Birthday Celebration Hall.png" alt="Grand Ballroom" loading="lazy"/><div class="am-label">Grand Ballroom</div></div>
-        <div class="am-card"><img src="images vedios/Golden Courtyard Amidst Modern Towers.png" alt="Outdoor Gathering Lawn" loading="lazy"/><div class="am-label">Outdoor Gathering Lawn</div></div>
-        <div class="am-card"><img src="images vedios/Sunlit Luxury Gym Training Floor.png" alt="Fitness Zone" loading="lazy"/><div class="am-label">Fitness Zone</div></div>
-        <div class="am-card"><img src="images vedios/Golden-Hour Luxury Entrance with Tropical Landscaping.png" alt="Walking Track" loading="lazy"/><div class="am-label">Walking Track</div></div>
-        <div class="am-card"><img src="images vedios/Golden-Hour Urban Racquet Court.png" alt="Badminton Court" loading="lazy"/><div class="am-label">Badminton Court</div></div>
-        <div class="am-card"><img src="images vedios/Sunlit Scandinavian Living Room.png" alt="Social Lounge" loading="lazy"/><div class="am-label">Social Lounge</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Cantilevered Clubhouse Amid Towers.png" alt="Club House" loading="lazy"/><div class="am-label">Club House</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Symmetrical Luxury Waterfall Entrance.png" alt="Aqua Hub" loading="lazy"/><div class="am-label">Aqua Hub</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunny Urban Playground Courtyard.png" alt="Adventure Zone" loading="lazy"/><div class="am-label">Adventure Zone</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Elegant Fifth Birthday Celebration Hall.png" alt="Grand Ballroom" loading="lazy"/><div class="am-label">Grand Ballroom</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Courtyard with Lush Landscaping.png" alt="Outdoor Gathering Lawn" loading="lazy"/><div class="am-label">Outdoor Gathering Lawn</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Warm-Lit Gym Interior.png" alt="Fitness Zone" loading="lazy"/><div class="am-label">Fitness Zone</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Modern Building and Landscaped Plaza.png" alt="Walking Track" loading="lazy"/><div class="am-label">Walking Track</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Indoor Paddle Court Duo.png" alt="Badminton Court" loading="lazy"/><div class="am-label">Badminton Court</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Modern Living Room with Greenery.png" alt="Social Lounge" loading="lazy"/><div class="am-label">Social Lounge</div></div>
       </div>
       <button class="am-side-arr next" id="g-next" aria-label="Next amenity">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -1146,25 +1422,25 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
       <div class="am-track" id="t-terrace">
-        <div class="am-card"><img src="images vedios/Warm Contemporary Billiards Lounge Conversation.png" alt="Game Lounge" loading="lazy"/><div class="am-label">Game Lounge</div></div>
-        <div class="am-card"><img src="images vedios/Sunlit Dance and Yoga Studio.png" alt="Wellness Studio" loading="lazy"/><div class="am-label">Wellness Studio</div></div>
-        <div class="am-card"><img src="images vedios/Warm Scandinavian Montessori Playroom.png" alt="Little Nest" loading="lazy"/><div class="am-label">Little Nest</div></div>
-        <div class="am-card"><img src="images vedios/Biophilic Workspace with Hanging Garden.png" alt="Work Studio" loading="lazy"/><div class="am-label">Work Studio</div></div>
-        <div class="am-card"><img src="images vedios/Blue-Hour Luxury Pavilion Dining.png" alt="Outdoor Dining" loading="lazy"/><div class="am-label">Outdoor Dining</div></div>
-        <div class="am-card"><img src="images vedios/Golden Rooftop Canopy Lounge at Dusk.png" alt="The Circle" loading="lazy"/><div class="am-label">The Circle</div></div>
-        <div class="am-card"><img src="images vedios/Twilight Courtyard Garden Glow.png" alt="Chill Deck" loading="lazy"/><div class="am-label">Chill Deck</div></div>
-        <div class="am-card"><img src="images vedios/Luxury Twilight Outdoor Cinema.png" alt="Open Air Theatre" loading="lazy"/><div class="am-label">Open Air Theatre</div></div>
-        <div class="am-card"><img src="images vedios/Stargazing on the Rooftop Terrace.png" alt="Star Gazing Deck" loading="lazy"/><div class="am-label">Star Gazing Deck</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Lounge with Billiards and Chess.png" alt="Game Lounge" loading="lazy"/><div class="am-label">Game Lounge</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Modern Dance Studio.png" alt="Wellness Studio" loading="lazy"/><div class="am-label">Wellness Studio</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Scandinavian Playroom with Family.png" alt="Little Nest" loading="lazy"/><div class="am-label">Little Nest</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Lush Modern Workspace by the Windows.png" alt="Work Studio" loading="lazy"/><div class="am-label">Work Studio</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Twilight Pavilion Dining Conversation.png" alt="Outdoor Dining" loading="lazy"/><div class="am-label">Outdoor Dining</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Twilight Rooftop Lounge with Glowing Pergolas.png" alt="The Circle" loading="lazy"/><div class="am-label">The Circle</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Twilight Rooftop Courtyard Gathering.png" alt="Chill Deck" loading="lazy"/><div class="am-label">Chill Deck</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Rooftop Cinema at Dusk.png" alt="Open Air Theatre" loading="lazy"/><div class="am-label">Open Air Theatre</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Stargazing Together on the Rooftop.png" alt="Star Gazing Deck" loading="lazy"/><div class="am-label">Star Gazing Deck</div></div>
         <!-- Duplicate -->
-        <div class="am-card"><img src="images vedios/Warm Contemporary Billiards Lounge Conversation.png" alt="Game Lounge" loading="lazy"/><div class="am-label">Game Lounge</div></div>
-        <div class="am-card"><img src="images vedios/Sunlit Dance and Yoga Studio.png" alt="Wellness Studio" loading="lazy"/><div class="am-label">Wellness Studio</div></div>
-        <div class="am-card"><img src="images vedios/Warm Scandinavian Montessori Playroom.png" alt="Little Nest" loading="lazy"/><div class="am-label">Little Nest</div></div>
-        <div class="am-card"><img src="images vedios/Biophilic Workspace with Hanging Garden.png" alt="Work Studio" loading="lazy"/><div class="am-label">Work Studio</div></div>
-        <div class="am-card"><img src="images vedios/Blue-Hour Luxury Pavilion Dining.png" alt="Outdoor Dining" loading="lazy"/><div class="am-label">Outdoor Dining</div></div>
-        <div class="am-card"><img src="images vedios/Golden Rooftop Canopy Lounge at Dusk.png" alt="The Circle" loading="lazy"/><div class="am-label">The Circle</div></div>
-        <div class="am-card"><img src="images vedios/Twilight Courtyard Garden Glow.png" alt="Chill Deck" loading="lazy"/><div class="am-label">Chill Deck</div></div>
-        <div class="am-card"><img src="images vedios/Luxury Twilight Outdoor Cinema.png" alt="Open Air Theatre" loading="lazy"/><div class="am-label">Open Air Theatre</div></div>
-        <div class="am-card"><img src="images vedios/Stargazing on the Rooftop Terrace.png" alt="Star Gazing Deck" loading="lazy"/><div class="am-label">Star Gazing Deck</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Lounge with Billiards and Chess.png" alt="Game Lounge" loading="lazy"/><div class="am-label">Game Lounge</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Modern Dance Studio.png" alt="Wellness Studio" loading="lazy"/><div class="am-label">Wellness Studio</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Sunlit Scandinavian Playroom with Family.png" alt="Little Nest" loading="lazy"/><div class="am-label">Little Nest</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Lush Modern Workspace by the Windows.png" alt="Work Studio" loading="lazy"/><div class="am-label">Work Studio</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Twilight Pavilion Dining Conversation.png" alt="Outdoor Dining" loading="lazy"/><div class="am-label">Outdoor Dining</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Twilight Rooftop Lounge with Glowing Pergolas.png" alt="The Circle" loading="lazy"/><div class="am-label">The Circle</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Twilight Rooftop Courtyard Gathering.png" alt="Chill Deck" loading="lazy"/><div class="am-label">Chill Deck</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Modern Rooftop Cinema at Dusk.png" alt="Open Air Theatre" loading="lazy"/><div class="am-label">Open Air Theatre</div></div>
+        <div class="am-card"><img src="images vedios/Amenities/Stargazing Together on the Rooftop.png" alt="Star Gazing Deck" loading="lazy"/><div class="am-label">Star Gazing Deck</div></div>
       </div>
       <button class="am-side-arr next" id="t-next" aria-label="Next amenity">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -1192,13 +1468,21 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <div class="fp-layout">
       <!-- Viewer -->
       <div class="fp-viewer rev-l" id="fp-viewer">
-        <img src="images vedios/Modern Isometric Apartment Floor Plan (1).png" class="fp-img fade-in" id="fp-img" alt="2 BHK Floor Plan" loading="lazy"/>
+        <img src="images vedios/2BHK.png" class="fp-img fade-in" id="fp-img" alt="2 BHK Floor Plan" loading="lazy"/>
+        <div class="fp-blur-overlay" id="fp-blur-overlay">
+          <button class="btn-dark-lux" id="fp-know-more">Know More</button>
+        </div>
       </div>
       <!-- Info -->
       <div class="fp-info rev-r">
         <span class="fp-type-big" id="fp-type">2 BHK</span>
         <span class="fp-type-sub" id="fp-sub">Smart layouts · Functional design</span>
-        <button class="btn-3d-gold" id="fp-enq-btn">Get Price Details</button>
+        <div class="fp-btns">
+          <button type="button" class="btn-3d-gold" id="fp-brochure-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Brochure
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1249,6 +1533,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           Open in Google Maps
         </a>
       </div>
+      <p class="loc-map-disclaimer">*Illustrative representation only. Locations, routes, distances and travel times are approximate and subject to verification.</p>
     </div>
   </div>
 </section>
@@ -1269,14 +1554,36 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="dev-stat"><span class="dev-num" data-target="5" data-suffix="K+">0K+</span><span class="dev-lbl">Happy Families</span></div>
       </div>
       <div class="dev-btns rev d2">
-        <button class="btn-3d-gold" id="dev-brochure">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download Brochure
+        <button class="btn-3d-gold" id="dev-know-more">
+          Know More
         </button>
       </div>
     </div>
     <div class="dev-img-wrap rev-r">
-      <img src="images vedios/Abhinav Group Luxury Lobby Logo.png" class="dev-img" alt="Abhinav Group" loading="lazy"/>
+      <img src="images vedios/Abhinav Group Luxury Property Showcase.png" class="dev-img" alt="Abhinav Group Luxury Property Showcase" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROJECT FILM / VIDEO TOUR ═══════════════════ -->
+<section id="video-tour" class="sec">
+  <div class="vid-inner">
+    <div class="vid-head rev">
+      <h2 class="vid-title">Virar West’s New Landmark – <span class="gold">THE CURVE</span></h2>
+      <span class="gold-rule-c"></span>
+    </div>
+
+    <div class="vid-player-wrap rev d1">
+      <div class="vid-player">
+        <iframe 
+          src="https://www.youtube.com/embed/HjBnUNSV7m4?autoplay=1&mute=1&loop=1&playlist=HjBnUNSV7m4&start=50&playsinline=1&rel=0" 
+          title="Virar West’s New Landmark – THE CURVE | Luxury 2 & 3 BHK Homes" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -1329,6 +1636,162 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
           Submit Enquiry
         </button>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ SECTION ═══════════════════ -->
+<section id="faq" class="sec">
+  <div class="faq-inner">
+    <div class="faq-head rev">
+      <span class="faq-eyebrow">Frequently Asked Questions</span>
+      <h2 class="faq-title">Everything You Need to Know<br/><span class="gold">About The Curve</span></h2>
+      <span class="gold-rule-c"></span>
+    </div>
+
+    <div class="faq-list rev d1">
+      <!-- Q1 -->
+      <div class="faq-item active">
+        <button class="faq-q" type="button" aria-expanded="true">
+          <span class="faq-q-text"><span class="faq-q-num">01.</span> Where is The Curve by Abhinav Group located?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a" style="max-height:300px;">
+          <div class="faq-a-in">
+            The Curve is located on Agashi Road, VIVA City, Bolinj, in Virar West, Vasai-Virar, Maharashtra – 401303. The project is just 7 minutes from Virar Railway Station and 3 minutes from the nearest rickshaw stand and bus stop, making it one of the best-connected new addresses in Virar West.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">02.</span> What configurations are available at The Curve Virar?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            The Curve offers spacious 2 BHK and 3 BHK homes (3BHK Classic and 3BHK Premium) across 4 towers rising 33 storeys, with smart, functional layouts designed for maximum space utilisation.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">03.</span> What amenities does The Curve offer?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            The project features 40+ lifestyle amenities spread across two tiers — Ground Level (clubhouse, Aqua Hub covered pool, Adventure Zone for kids, Grand Ballroom, fitness zone, walking track, badminton court, social lounge) and Top Terrace Level (game lounge, wellness studio, kids’ play zone, work studio, outdoor dining, open-air theatre, and a 33rd-floor stargazing deck).
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">04.</span> Who is the developer behind The Curve?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            The Curve is developed by Abhinav Group, which has over 30 years of experience in real estate, 28+ completed projects, 10 million+ sq. ft. developed, and 5,000+ happy families across Mumbai.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">05.</span> Is The Curve Virar RERA registered?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            Yes, the project is registered under MahaRERA with registration number PR1240002600667. Homebuyers can verify project details on the official MahaRERA portal (<a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">maharera.maharashtra.gov.in</a>).
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">06.</span> How well connected is The Curve to schools, hospitals, and daily conveniences?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            The Curve is close to Matrix Academy School (5 min), Muljibhai Mehta International School (8 min), Prakriti Hospital (4 min), Wellcare Multispeciality Hospital (11 min), D Mart (4 min), and The Capital Mall (11 min) — offering strong everyday connectivity for families.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">07.</span> Why should I consider a 2 BHK or 3 BHK flat in Virar West?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            Virar West is emerging as a well-connected residential micro-market with proximity to the railway station, upcoming infrastructure, and a mix of healthcare, retail, and educational institutions — making it an attractive option for both end-users and long-term investors seeking value appreciation.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">08.</span> What makes The Curve's design different from other Virar projects?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            The Curve is designed as a 33-storey architectural landmark with a distinctive curved facade and signature connected terraces — a design concept aimed at maximising light, air, and openness, which is uncommon in the Virar micro-market.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">09.</span> How can I get the price list and floor plans for The Curve?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            Interested buyers can download the official brochure directly from the website or register their interest to receive priority access to pre-launch pricing, floor plans, and inventory selection before the official launch.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">10.</span> How do I book a site visit or enquire about The Curve Virar?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            You can enquire directly via the website’s contact form or call <a href="tel:+918530285005" style="color:var(--gold);font-weight:600;">+91 85302 85005</a> to schedule a site visit and speak with the sales team.
+          </div>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-q-text"><span class="faq-q-num">11.</span> Why should I invest in Virar right now?</span>
+          <span class="faq-ico"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-in">
+            Virar’s property values have climbed 6–9% annually over the past five years, and that trend is set to accelerate with major infrastructure on the way — Metro Line 13, the Virar-Alibaug Corridor, and a proposed bullet train station. As these projects move closer to completion, early investors typically capture the biggest price gains before the value gap with established Mumbai suburbs closes.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1459,8 +1922,14 @@ function setupAmenityCarousel(trackId, prevId, nextId) {
   let nudgeTo = 0;
   let resumeTimer = null;
   const nudgeDuration = 520;
-  const step = 398;
   const baseSpeed = 0.85;
+
+  function getStep() {
+    const card = track.querySelector('.am-card, .why-card');
+    if (!card) return 400;
+    const gap = card.classList.contains('why-card') ? 26 : 18;
+    return card.offsetWidth + gap;
+  }
 
   function getHalf() {
     return track.scrollWidth ? track.scrollWidth / 2 : 0;
@@ -1484,7 +1953,7 @@ function setupAmenityCarousel(trackId, prevId, nextId) {
     isNudging = true;
     nudgeStart = performance.now();
     nudgeFrom = currentX;
-    nudgeTo = currentX + (direction * -step);
+    nudgeTo = currentX + (direction * -getStep());
   }
 
   prevBtn.addEventListener('click', (e) => {
@@ -1529,15 +1998,9 @@ function setupAmenityCarousel(trackId, prevId, nextId) {
   requestAnimationFrame(tick);
 }
 
+setupAmenityCarousel('why-track', 'w-prev', 'w-next');
 setupAmenityCarousel('t-ground', 'g-prev', 'g-next');
 setupAmenityCarousel('t-terrace', 't-prev', 't-next');
-
-/* Why The Curve marquee pause on hover */
-const whyTrack = document.getElementById('why-track');
-if (whyTrack) {
-  whyTrack.addEventListener('mouseenter', () => whyTrack.style.animationPlayState = 'paused');
-  whyTrack.addEventListener('mouseleave', () => whyTrack.style.animationPlayState = 'running');
-}
 
 /* ── FLOOR PLAN 3D TILT ── */
 const fpView = document.getElementById('fp-viewer');
@@ -1557,9 +2020,9 @@ if (fpView) {
 
 /* ── FLOOR PLAN SWITCHER ── */
 const plans = {
-  '2bhk':         { img:'images vedios/Modern Isometric Apartment Floor Plan (1).png',   type:'2 BHK',        sub:'Smart layouts · Functional design' },
-  '3bhk-classic': { img:'images vedios/Isometric Modern Apartment Floor Plan (1).png',   type:'3 BHK Classic', sub:'Spacious · Refined · Complete' },
-  '3bhk-premium': { img:'images vedios/Isometric Modern Apartment Floor Plan (2).png',   type:'3 BHK Premium', sub:'The pinnacle of luxury living' }
+  '2bhk':         { img:'images vedios/2BHK.png',          type:'2 BHK',         sub:'Smart layouts · Functional design' },
+  '3bhk-classic': { img:'images vedios/3BHK Classic.png',  type:'3 BHK Classic', sub:'Spacious · Refined · Complete' },
+  '3bhk-premium': { img:'images vedios/3BHK Premium.png',  type:'3 BHK Premium', sub:'The pinnacle of luxury living' }
 };
 function switchPlan(key) {
   const p = plans[key], img = document.getElementById('fp-img');
@@ -1602,38 +2065,129 @@ const devStats = document.querySelector('.dev-stats');
 if (devStats) cntObs.observe(devStats);
 
 /* ── MODAL ── */
+let pendingBrochureDownload = false;
 const modalOv = document.getElementById('modal-ov'), modalCls = document.getElementById('modal-cls');
 const openModal = () => { modalOv.classList.add('open'); document.body.style.overflow='hidden'; };
-const closeModal = () => { modalOv.classList.remove('open'); document.body.style.overflow=''; };
+const closeModal = () => { modalOv.classList.remove('open'); document.body.style.overflow=''; pendingBrochureDownload = false; };
 
-['nav-enq-btn','hero-enq-btn','fp-enq-btn','dev-enq-btn','mob-enq-btn','dev-brochure'].forEach(id => {
+['nav-enq-btn','hero-enq-btn','dev-enq-btn','mob-enq-btn','dev-brochure','dev-know-more','hero-offer-btn','fp-know-more','fp-blur-overlay'].forEach(id => {
   const el = document.getElementById(id);
-  if (el) el.addEventListener('click', e => { e.preventDefault(); openModal(); });
+  if (el) el.addEventListener('click', e => { 
+    e.preventDefault(); 
+    pendingBrochureDownload = false; 
+    openModal(); 
+  });
 });
+
+const fpBrochureBtn = document.getElementById('fp-brochure-btn');
+if (fpBrochureBtn) {
+  fpBrochureBtn.addEventListener('click', e => {
+    e.preventDefault();
+    pendingBrochureDownload = true;
+    openModal();
+  });
+}
+
 modalCls.addEventListener('click', closeModal);
 modalOv.addEventListener('click', e => { if (e.target === modalOv) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 /* ── FORM SUBMIT (modal + contact) ── */
-function submitForm(name, phone, config) {
-  const msg = encodeURIComponent(`Hi, I am interested in The Curve, Virar.\n\nName: ${name}\nPhone: ${phone}\nConfiguration: ${config || 'To be decided'}`);
+async function submitForm(name, email, phone, source = 'Website Enquiry') {
+  // Send all details to abhinavgroup2026@gmail.com
+  try {
+    fetch('https://formsubmit.co/ajax/abhinavgroup2026@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `New Lead: The Curve, Virar - ${name} (${phone})`,
+        Name: name,
+        Email: email || 'Not Provided',
+        Phone: phone,
+        Project: 'The Curve, Virar',
+        Source: source,
+        Timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      })
+    }).catch(err => console.log('Mail dispatch note:', err));
+  } catch(e) {
+    console.log(e);
+  }
+
+  // Also open WhatsApp so user can connect directly
+  const msg = encodeURIComponent(`Hi, I am interested in The Curve, Virar.\n\nName: ${name}\nEmail: ${email || 'Not Provided'}\nPhone: ${phone}\nEnquiry Type: ${source}`);
   window.open(`https://api.whatsapp.com/send/?phone=918530285005&text=${msg}&type=phone_number&app_absent=0`, '_blank');
 }
 
 document.getElementById('modal-form').addEventListener('submit', e => {
   e.preventDefault();
-  const n = document.getElementById('m-name').value.trim(), p = document.getElementById('m-phone').value.trim(), mConfigEl = document.getElementById('m-config'), c = mConfigEl ? mConfigEl.value : 'General Enquiry';
+  const n = document.getElementById('m-name').value.trim();
+  const em = document.getElementById('m-email') ? document.getElementById('m-email').value.trim() : '';
+  const p = document.getElementById('m-phone').value.trim();
   if (!n || !p) return;
+
+  const willDownloadBrochure = pendingBrochureDownload;
+  pendingBrochureDownload = false;
+
   document.getElementById('modal-form-wrap').style.display='none';
   document.getElementById('modal-ok').classList.add('show');
-  setTimeout(() => submitForm(n, p, c), 800);
+
+  if (willDownloadBrochure) {
+    const link = document.createElement('a');
+    link.href = 'The-Curve-Brochure.pdf';
+    link.download = 'The-Curve-Brochure.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  const src = willDownloadBrochure ? 'Brochure Download Request' : 'Popup Modal (Get In Touch / Enquire / Know More)';
+  setTimeout(() => submitForm(n, em, p, src), 600);
 });
 
 document.getElementById('contact-form').addEventListener('submit', e => {
   e.preventDefault();
-  const n = document.getElementById('c-name').value.trim(), p = document.getElementById('c-phone').value.trim(), cEl = document.getElementById('c-config'), c = cEl ? cEl.value : 'General Enquiry';
+  const n = document.getElementById('c-name').value.trim();
+  const em = document.getElementById('c-email') ? document.getElementById('c-email').value.trim() : '';
+  const p = document.getElementById('c-phone').value.trim();
   if (!n || !p) return;
-  submitForm(n, p, c);
+  const btn = e.target.querySelector('button[type="submit"]');
+  if (btn) {
+    btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M20 6L9 17l-5-5"/></svg> Enquiry Sent!`;
+  }
+  submitForm(n, em, p, 'Footer Contact Section (Get In Touch)');
+});
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const ans = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('active');
+    
+    // Close other items
+    document.querySelectorAll('.faq-item.active').forEach(other => {
+      if (other !== item) {
+        other.classList.remove('active');
+        const oBtn = other.querySelector('.faq-q');
+        if (oBtn) oBtn.setAttribute('aria-expanded', 'false');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      }
+    });
+
+    if (isOpen) {
+      item.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      ans.style.maxHeight = null;
+    } else {
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+  });
 });
 </script>
 </body>
