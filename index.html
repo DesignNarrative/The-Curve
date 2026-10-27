@@ -503,36 +503,63 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 .fp-title{font-family:var(--font-serif);font-size:clamp(2.5rem,4.4vw,3.9rem);font-weight:500;line-height:1.15;color:var(--dark-text);margin-top:10px}
 .fp-sub{font-size:1.16rem;line-height:1.95;color:var(--body-text);font-weight:300;max-width:680px;margin-top:14px}
 
-.fp-tabs{display:flex;gap:16px;flex-wrap:wrap;margin:36px 0 52px}
+.fp-tabs{
+  display:inline-flex;
+  gap:12px;
+  border-bottom:2px solid rgba(184, 144, 42, 0.22);
+  margin:32px 0 46px;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
 .fp-tab{
-  padding:15px 36px;
-  border-radius:50px;
-  background:linear-gradient(180deg, #FFFFFF 0%, #F5ECE0 100%);
-  border:1px solid rgba(184, 144, 42, 0.35);
-  color:var(--dark-text);
+  padding:14px 28px 16px 28px;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  color:#6B5E55;
   font-family:var(--font-sans);
-  font-size:0.84rem;
+  font-size:0.96rem;
   font-weight:600;
-  letter-spacing:0.16em;
+  letter-spacing:0.12em;
   text-transform:uppercase;
-  transition:all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transition:color 0.25s ease;
   cursor:pointer;
-  box-shadow:0 6px 18px rgba(28,20,16,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
   position:relative;
+  white-space:nowrap;
+  margin-bottom:-2px;
+}
+.fp-tab::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:3.5px;
+  background:linear-gradient(90deg, #B88726 0%, #D4AA52 50%, #B88726 100%);
+  border-radius:3px 3px 0 0;
+  opacity:0;
+  transform:scaleX(0.2);
+  transition:transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
 }
 .fp-tab:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 26px rgba(184,144,42,0.25), inset 0 1px 0 rgba(255,255,255,1);
-  border-color:var(--gold);
-  color:#1C1410;
+  color:var(--dark-text);
+}
+.fp-tab:hover::after{
+  opacity:0.45;
+  transform:scaleX(0.6);
 }
 .fp-tab.active{
-  background:linear-gradient(180deg, #FBE6B8 0%, #E3BC6D 50%, #C8993E 100%);
   color:#181108;
-  border-color:#B88726;
-  font-weight:700;
-  box-shadow:0 8px 26px rgba(184,144,42,0.38), inset 0 1px 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.12);
-  transform:translateY(-2px);
+  font-weight:800;
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+}
+.fp-tab.active::after{
+  opacity:1;
+  transform:scaleX(1);
 }
 
 .fp-layout{display:grid;grid-template-columns:1.2fr 0.9fr;gap:64px;align-items:center}
@@ -1186,6 +1213,8 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .form-box{padding:28px 20px}
   .modal-in{padding:32px 20px}
   .contact-grid{gap:40px}
+  .fp-tabs{gap:6px;margin:24px 0 32px}
+  .fp-tab{padding:10px 14px 12px 14px;font-size:0.82rem;letter-spacing:0.08em}
 }
 @media(prefers-reduced-motion:reduce){
   .why-track,.am-track{animation:none}
@@ -1827,7 +1856,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <form id="modal-form" novalidate>
           <div class="f-group"><input type="text" class="f-input" id="m-name" placeholder="Full Name" required autocomplete="name"/></div>
           <div class="f-group"><input type="email" class="f-input" id="m-email" placeholder="Your Email" autocomplete="email"/></div>
-          <div class="f-group"><input type="tel" class="f-input" id="m-phone" placeholder="Phone Number" required autocomplete="tel"/></div>
+          <div class="f-group">
+            <input type="tel" class="f-input" id="m-phone" placeholder="Phone Number" required autocomplete="tel"/>
+          </div>
           <p class="f-note">By submitting your personal information, you agree to our Privacy Policy and Terms &amp; Conditions.*</p>
           <button type="submit" class="btn-3d-gold f-submit">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
@@ -2068,7 +2099,15 @@ if (devStats) cntObs.observe(devStats);
 let pendingBrochureDownload = false;
 const modalOv = document.getElementById('modal-ov'), modalCls = document.getElementById('modal-cls');
 const openModal = () => { modalOv.classList.add('open'); document.body.style.overflow='hidden'; };
-const closeModal = () => { modalOv.classList.remove('open'); document.body.style.overflow=''; pendingBrochureDownload = false; };
+const closeModal = () => { 
+  modalOv.classList.remove('open'); 
+  document.body.style.overflow=''; 
+  pendingBrochureDownload = false;
+  setTimeout(() => {
+    document.getElementById('modal-form-wrap').style.display='block';
+    document.getElementById('modal-ok').classList.remove('show');
+  }, 350);
+};
 
 ['nav-enq-btn','hero-enq-btn','dev-enq-btn','mob-enq-btn','dev-brochure','dev-know-more','hero-offer-btn','fp-know-more','fp-blur-overlay'].forEach(id => {
   const el = document.getElementById(id);
@@ -2131,7 +2170,7 @@ document.getElementById('modal-form').addEventListener('submit', e => {
   const willDownloadBrochure = pendingBrochureDownload;
   pendingBrochureDownload = false;
 
-  document.getElementById('modal-form-wrap').style.display='none';
+  document.getElementById('modal-form-wrap').style.display = 'none';
   document.getElementById('modal-ok').classList.add('show');
 
   if (willDownloadBrochure) {
