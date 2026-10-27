@@ -200,26 +200,6 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
   transition:transform 0.4s ease;
 }
 
-/* Hero Bottom Right — Luxury 2% Home Ownership Banner */
-.hero-bottom-badge{
-  position:absolute;bottom:24px;right:calc(3% + 72px);
-  z-index:4;display:block;
-  border-radius:10px;overflow:hidden;
-  border:1px solid rgba(212,170,82,0.55);
-  box-shadow:0 10px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-  line-height:0;
-  cursor:pointer;
-}
-.hero-bottom-badge:hover{
-  transform:translateY(-3px) scale(1.02);
-  box-shadow:0 14px 36px rgba(0,0,0,0.7), 0 0 20px rgba(212,170,82,0.45);
-}
-.hero-bottom-badge img{
-  width:clamp(260px, 22vw, 360px);
-  height:auto;
-  display:block;
-}
 
 /* Hero bottom bar */
 .hero-bottom{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;padding:20px 5% 28px;background:linear-gradient(0deg,rgba(0,0,0,0.65) 0%,transparent 100%);pointer-events:none}
@@ -1180,8 +1160,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .hero-top-badge img{width:clamp(165px, 24vw, 220px)}
   .hero-emblem-right{right:4%;top:50%;transform:translateY(-50%)}
   .hero-emblem-right img{height:clamp(95px, 14vh, 130px)}
-  .hero-bottom-badge{bottom:22px;right:78px}
-  .hero-bottom-badge img{width:clamp(190px, 28vw, 260px)}
   .dev-stats{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   .am-card{width:340px;height:325px}
@@ -1203,8 +1181,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .hero-top-badge img{width:clamp(130px, 36vw, 160px)}
   .hero-emblem-right{right:3.5%;top:50%;transform:translateY(-50%)}
   .hero-emblem-right img{height:85px}
-  .hero-bottom-badge{bottom:90px;right:4%}
-  .hero-bottom-badge img{width:clamp(145px, 42vw, 185px)}
   .hero-bottom{padding:16px 4% 20px;flex-direction:row;align-items:center}
   .hero-loc-pin{width:32px;height:32px}
   .hero-loc-name{font-size:0.75rem}
@@ -1288,10 +1264,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     <img src="images vedios/Crown Curve Luxury Emblem.png" alt="Crown Curve Luxury Emblem"/>
   </div>
 
-  <!-- Bottom Right Luxury 2% Home Ownership Banner -->
-  <a href="#" class="hero-bottom-badge" id="hero-offer-btn" title="Luxury 2% Home Ownership Offer — Enquire Now">
-    <img src="images vedios/Luxury 2-Percent Home Ownership Banner.png" alt="Luxury 2% Home Ownership Banner" loading="eager"/>
-  </a>
 
   <!-- Bottom Left Location -->
   <div class="hero-bottom">
