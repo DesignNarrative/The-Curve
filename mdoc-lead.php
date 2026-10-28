@@ -82,7 +82,7 @@ $theCurveApiKey = '132b5197-bff7-4aa5-89f4-3c0cab7f6a45';
 
 // Build payload per MDOC API Document specifications
 $mdocPayload = [
-    'DataFrom'            => 'E', // "E" = Enquiry
+    'DataFrom'            => 'T', // "T" = TeleCalling
     'ApiKey'              => $theCurveApiKey,
     'EnquiryDate'         => date('Y-m-d'),
     'Salutation'          => '',
