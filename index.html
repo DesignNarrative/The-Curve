@@ -139,6 +139,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 ══════════════════════════════════════════════════ */
 #hero{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-mobile-img{display:none}
 .hero-ov1{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.5) 0%,transparent 25%,transparent 65%,rgba(0,0,0,0.7) 100%)}
 .hero-ov2{display:none}
 
@@ -314,7 +315,8 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
   display:flex;
   align-items:center;
 }
-.plaza-img{
+.plaza-picture{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.plaza-picture img,.plaza-img{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center right;
   transform:scale(1.02);
@@ -1154,12 +1156,40 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .nav-ham{display:flex}
   #navbar{height:80px;padding:0 5%}
   .nav-logo img{height:58px}
-  .hero-top-caption{top:88px;width:95%}
-  .hero-3d-text{font-size:clamp(0.85rem, 3.4vw, 1.25rem);letter-spacing:0.02em}
-  .hero-top-badge{top:124px;right:2.5%}
-  .hero-top-badge img{width:clamp(165px, 24vw, 220px)}
-  .hero-emblem-right{right:4%;top:50%;transform:translateY(-50%)}
-  .hero-emblem-right img{height:clamp(95px, 14vh, 130px)}
+
+  /* Mobile Hero Banner — Crown of Grandeur Image */
+  .hero-video{display:none !important}
+  .hero-mobile-img{
+    display:block !important;
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center;
+    z-index:1;
+  }
+  .hero-top-caption{display:none !important}
+  .hero-top-badge{display:none !important}
+  .hero-emblem-right{display:none !important}
+  .hero-bottom{display:none !important}
+
+  /* Mobile Drawer Navigation Links — Bold & Enquire Button Raised */
+  .mob-drawer{
+    padding:56px 28px 24px;
+    gap:16px;
+    height:100%;
+    max-height:100dvh;
+    overflow-y:auto;
+  }
+  .mob-links a{
+    font-weight:700 !important;
+    font-size:1.15rem;
+    color:var(--dark-text);
+    padding:11px 0;
+  }
+  .mob-enq-btn{
+    margin-top:16px;
+    padding:14px 26px;
+    margin-bottom:12px;
+  }
+
   .dev-stats{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   .am-card{width:340px;height:325px}
@@ -1175,15 +1205,15 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 @media(max-width:480px){
   .sec{padding:56px 5%}
   .am-card{width:290px;height:278px}
-  .hero-top-caption{top:84px;width:96%}
-  .hero-3d-text{font-size:clamp(0.72rem, 3.1vw, 0.95rem);letter-spacing:0.01em}
-  .hero-top-badge{top:116px;right:2.5%}
-  .hero-top-badge img{width:clamp(130px, 36vw, 160px)}
-  .hero-emblem-right{right:3.5%;top:50%;transform:translateY(-50%)}
-  .hero-emblem-right img{height:85px}
-  .hero-bottom{padding:16px 4% 20px;flex-direction:row;align-items:center}
-  .hero-loc-pin{width:32px;height:32px}
-  .hero-loc-name{font-size:0.75rem}
+  .hero-video{display:none !important}
+  .hero-mobile-img{display:block !important}
+  .hero-top-caption{display:none !important}
+  .hero-top-badge{display:none !important}
+  .hero-emblem-right{display:none !important}
+  .hero-bottom{display:none !important}
+  .mob-drawer{padding:48px 22px 18px;gap:12px}
+  .mob-links a{font-weight:700 !important;font-size:1.1rem;padding:9px 0}
+  .mob-enq-btn{margin-top:14px;padding:13px 22px;margin-bottom:10px}
   .fp-btns,.dev-btns{flex-direction:column}
   .btn-gold,.btn-outline-dark{justify-content:center;width:100%}
   .form-box{padding:28px 20px}
@@ -1247,6 +1277,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <video class="hero-video" autoplay muted loop playsinline preload="auto">
     <source src="images vedios/Generate_time-lapse_video.mp4" type="video/mp4"/>
   </video>
+  <img src="images vedios/The Curve_ Crown of Grandeur.png" class="hero-mobile-img" alt="The Curve — Crown of Grandeur" loading="eager"/>
   <div class="hero-ov1"></div>
 
   <!-- Top Center 3D Luxury Text In One Line -->
@@ -1359,7 +1390,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 
 <!-- ═══════════════════ AMENITY PLAZA ═══════════════════ -->
 <section id="plaza">
-  <img src="images vedios/Skyline Garden Rooftop Retreat.png" class="plaza-img" alt="A World Above Ordinary" loading="lazy"/>
+  <picture class="plaza-picture">
+    <source media="(max-width: 768px)" srcset="images vedios/Curved Rooftop Garden Over the City.png">
+    <img src="images vedios/Skyline Garden Rooftop Retreat.png" class="plaza-img" alt="A World Above Ordinary" loading="lazy"/>
+  </picture>
   <div class="plaza-ov"></div>
   <div class="plaza-content">
     <span class="plaza-eyebrow rev">A WORLD ABOVE ORDINARY</span>
