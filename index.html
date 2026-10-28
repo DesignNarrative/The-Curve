@@ -2105,7 +2105,46 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 /* ── FORM SUBMIT (modal + contact) ── */
 async function submitForm(name, email, phone, source = 'Website Enquiry') {
-  // Send all details to abhinavgroup2026@gmail.com
+  // 1. Capture UTM campaign parameters from URL if present
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || '';
+  const utmMedium = urlParams.get('utm_medium') || '';
+  const utmCampaign = urlParams.get('utm_campaign') || '';
+  const utmContent = urlParams.get('utm_content') || '';
+  const utmTerm = urlParams.get('utm_term') || '';
+
+  // Determine active floor plan preference if available
+  const activeTab = document.querySelector('.fp-tab.active');
+  const preference = activeTab ? activeTab.textContent.trim() : '';
+
+  // 2. Push to MDOC CRM for THE CURVE (via mdoc-lead.php bridge)
+  try {
+    fetch('mdoc-lead.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: phone,
+        source: source,
+        preference: preference,
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: utmCampaign,
+        utm_content: utmContent,
+        utm_term: utmTerm
+      })
+    })
+    .then(res => res.json())
+    .then(data => console.log('MDOC CRM Response:', data))
+    .catch(err => console.log('MDOC dispatch note:', err));
+  } catch(e) {
+    console.log('MDOC dispatch error:', e);
+  }
+
+  // 3. Send email notification to abhinavgroup2026@gmail.com
   try {
     fetch('https://formsubmit.co/ajax/abhinavgroup2026@gmail.com', {
       method: 'POST',
@@ -2127,7 +2166,7 @@ async function submitForm(name, email, phone, source = 'Website Enquiry') {
     console.log(e);
   }
 
-  // Also open WhatsApp so user can connect directly
+  // 4. Also open WhatsApp so user can connect directly
   const msg = encodeURIComponent(`Hi, I am interested in The Curve, Virar.\n\nName: ${name}\nEmail: ${email || 'Not Provided'}\nPhone: ${phone}\nEnquiry Type: ${source}`);
   window.open(`https://api.whatsapp.com/send/?phone=918530285005&text=${msg}&type=phone_number&app_absent=0`, '_blank');
 }
