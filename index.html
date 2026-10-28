@@ -2204,7 +2204,6 @@ const closeModal = () => {
   const el = document.getElementById(id);
   if (el) el.addEventListener('click', e => { 
     e.preventDefault(); 
-    try { sessionStorage.setItem('curve_auto_popup_shown', 'true'); } catch(err){}
     pendingBrochureDownload = false; 
     openModal(); 
   });
@@ -2214,7 +2213,6 @@ const fpBrochureBtn = document.getElementById('fp-brochure-btn');
 if (fpBrochureBtn) {
   fpBrochureBtn.addEventListener('click', e => {
     e.preventDefault();
-    try { sessionStorage.setItem('curve_auto_popup_shown', 'true'); } catch(err){}
     pendingBrochureDownload = true;
     openModal();
   });
@@ -2224,16 +2222,14 @@ modalCls.addEventListener('click', closeModal);
 modalOv.addEventListener('click', e => { if (e.target === modalOv) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-/* ── AUTO POPUP AFTER 5 SECONDS (ONCE PER SESSION FOR ALL DEVICES) ── */
+/* ── AUTO POPUP AFTER 5 SECONDS (ON EVERY PAGE LOAD / REFRESH) ── */
+let autoPopupTriggered = false;
 const triggerAutoPopup = () => {
+  if (autoPopupTriggered) return;
+  autoPopupTriggered = true;
   setTimeout(() => {
-    try {
-      if (!sessionStorage.getItem('curve_auto_popup_shown') && !modalOv.classList.contains('open')) {
-        sessionStorage.setItem('curve_auto_popup_shown', 'true');
-        openModal();
-      }
-    } catch(e) {
-      if (!modalOv.classList.contains('open')) openModal();
+    if (!modalOv.classList.contains('open')) {
+      openModal();
     }
   }, 5000);
 };
