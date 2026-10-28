@@ -112,17 +112,18 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 #navbar.scrolled .nav-ham span{background:var(--dark-text)}
 
 /* Mobile Drawer */
-.mob-overlay{position:fixed;inset:0;background:rgba(28,20,16,0.55);z-index:998;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.mob-overlay{position:fixed;inset:0;background:rgba(28,20,16,0.6);z-index:10001;opacity:0;pointer-events:none;transition:opacity 0.4s;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .mob-overlay.open{opacity:1;pointer-events:all}
 .mob-drawer{
-  position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;
-  background:var(--card);border-left:1px solid var(--border);z-index:999;
-  padding:80px 36px 40px;display:flex;flex-direction:column;gap:24px;
-  transition:right 0.5s cubic-bezier(0.76,0,0.24,1);box-shadow:-20px 0 80px rgba(28,20,16,0.12);
+  position:fixed;top:0;right:-100%;width:82%;max-width:320px;height:100vh;height:100dvh;
+  background:var(--card);border-left:1px solid var(--border);z-index:10005;
+  padding:72px 32px 32px;display:flex;flex-direction:column;gap:20px;
+  transition:right 0.4s cubic-bezier(0.25,1,0.5,1);box-shadow:-20px 0 80px rgba(28,20,16,0.18);
+  overflow-y:auto;
 }
 .mob-drawer.open{right:0}
-.mob-close{position:absolute;top:20px;right:20px;background:none;border:1px solid var(--border);color:var(--muted);width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;transition:all 0.3s}
-.mob-close:hover{color:var(--gold);border-color:var(--gold)}
+.mob-close{position:absolute;top:18px;right:20px;background:#FAF5EC;border:1px solid var(--border);color:var(--dark-text);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.95rem;transition:all 0.3s;cursor:pointer;z-index:10}
+.mob-close:hover{color:var(--gold);border-color:var(--gold);transform:scale(1.05)}
 .mob-links{list-style:none;display:flex;flex-direction:column}
 .mob-links a{display:block;padding:14px 0;font-family:var(--font-serif);font-size:1.05rem;color:var(--body-text);border-bottom:1px solid rgba(28,20,16,0.07);transition:color 0.3s}
 .mob-links a:hover{color:var(--gold)}
@@ -1150,19 +1151,50 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .fp-layout{grid-template-columns:1fr;gap:44px}
 }
 @media(max-width:768px){
+  section{scroll-margin-top:74px}
   .sec{padding:72px 5%}
   .loc-cats{grid-template-columns:1fr;gap:16px}
   .nav-links{display:none}
   .nav-ham{display:flex}
-  #navbar{height:80px;padding:0 5%}
-  .nav-logo img{height:58px}
 
-  /* Mobile Hero Banner — Crown of Grandeur Image */
+  /* Mobile Top Navbar Header */
+  #navbar, #navbar.on-video{
+    height:74px !important;
+    padding:0 5% !important;
+    background:rgba(254,252,248,0.98) !important;
+    backdrop-filter:blur(20px) !important;
+    -webkit-backdrop-filter:blur(20px) !important;
+    border-bottom:1px solid var(--border) !important;
+    box-shadow:0 2px 18px rgba(28,20,16,0.08) !important;
+  }
+  .nav-ham span{
+    background:var(--dark-text) !important;
+  }
+  .nav-logo img{
+    height:52px !important;
+    filter:none !important;
+  }
+
+  /* Mobile Hero Banner — Starts Below Navbar, Fits Complete Image Without Cropping */
+  #hero{
+    position:relative !important;
+    height:auto !important;
+    min-height:0 !important;
+    padding-top:74px !important;
+    display:block !important;
+    overflow:hidden !important;
+    background:#FEFCF8 !important;
+  }
   .hero-video{display:none !important}
+  .hero-ov1{display:none !important}
   .hero-mobile-img{
     display:block !important;
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;object-position:center;
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    max-width:100% !important;
+    object-fit:contain !important;
+    margin:0 auto !important;
     z-index:1;
   }
   .hero-top-caption{display:none !important}
@@ -1170,12 +1202,16 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .hero-emblem-right{display:none !important}
   .hero-bottom{display:none !important}
 
-  /* Mobile Drawer Navigation Links — Bold & Enquire Button Raised */
+  /* Mobile Drawer Navigation — Overlays above navbar, no clipping/hidden tabs */
+  .mob-overlay{
+    z-index:10001 !important;
+  }
   .mob-drawer{
-    padding:56px 28px 24px;
+    z-index:10005 !important;
+    padding:72px 28px 24px !important;
     gap:16px;
-    height:100%;
-    max-height:100dvh;
+    height:100% !important;
+    max-height:100dvh !important;
     overflow-y:auto;
   }
   .mob-links a{
@@ -1188,6 +1224,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
     margin-top:16px;
     padding:14px 26px;
     margin-bottom:12px;
+    flex-shrink:0;
   }
 
   .dev-stats{grid-template-columns:1fr 1fr}
@@ -1203,17 +1240,28 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .why-card-desc{font-size:0.88rem}
 }
 @media(max-width:480px){
+  section{scroll-margin-top:68px}
   .sec{padding:56px 5%}
   .am-card{width:290px;height:278px}
+  #navbar, #navbar.on-video{
+    height:68px !important;
+  }
+  .nav-logo img{
+    height:46px !important;
+  }
+  #hero{
+    padding-top:68px !important;
+  }
   .hero-video{display:none !important}
+  .hero-ov1{display:none !important}
   .hero-mobile-img{display:block !important}
   .hero-top-caption{display:none !important}
   .hero-top-badge{display:none !important}
   .hero-emblem-right{display:none !important}
   .hero-bottom{display:none !important}
-  .mob-drawer{padding:48px 22px 18px;gap:12px}
-  .mob-links a{font-weight:700 !important;font-size:1.1rem;padding:9px 0}
-  .mob-enq-btn{margin-top:14px;padding:13px 22px;margin-bottom:10px}
+  .mob-drawer{padding:68px 22px 20px !important;gap:12px;z-index:10005 !important}
+  .mob-links a{font-weight:700 !important;font-size:1.08rem;padding:9px 0}
+  .mob-enq-btn{margin-top:14px;padding:13px 22px;margin-bottom:10px;flex-shrink:0}
   .fp-btns,.dev-btns{flex-direction:column}
   .btn-gold,.btn-outline-dark{justify-content:center;width:100%}
   .form-box{padding:28px 20px}
@@ -1911,7 +1959,7 @@ window.addEventListener('scroll', () => {
 
 /* ── MOBILE DRAWER ── */
 const ham = document.getElementById('nav-ham'), dr = document.getElementById('mob-dr'), ov = document.getElementById('mob-ov'), cls = document.getElementById('mob-cls');
-const openD = () => { dr.classList.add('open'); ov.classList.add('open'); document.body.style.overflow='hidden'; };
+const openD = () => { dr.scrollTop = 0; dr.classList.add('open'); ov.classList.add('open'); document.body.style.overflow='hidden'; };
 const closeD = () => { dr.classList.remove('open'); ov.classList.remove('open'); document.body.style.overflow=''; };
 ham.addEventListener('click', openD); cls.addEventListener('click', closeD); ov.addEventListener('click', closeD);
 dr.querySelectorAll('a').forEach(a => a.addEventListener('click', closeD));
