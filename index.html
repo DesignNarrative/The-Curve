@@ -2254,58 +2254,58 @@ async function submitForm(name, email, phone, source = 'Website Enquiry') {
   const activeTab = document.querySelector('.fp-tab.active');
   const preference = activeTab ? activeTab.textContent.trim() : '';
 
-  // 2. Push to MDOC CRM for THE CURVE (via mdoc-lead.php bridge)
-  try {
-    fetch('mdoc-lead.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        phone: phone,
-        source: source,
-        preference: preference,
-        utm_source: utmSource,
-        utm_medium: utmMedium,
-        utm_campaign: utmCampaign,
-        utm_content: utmContent,
-        utm_term: utmTerm
-      })
+  // 2. Dispatch both MDOC CRM and email in parallel
+  const mdocPromise = fetch('mdoc-lead.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      phone: phone,
+      source: source,
+      preference: preference,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      utm_term: utmTerm
     })
-    .then(res => res.json())
-    .then(data => console.log('MDOC CRM Response:', data))
-    .catch(err => console.log('MDOC dispatch note:', err));
-  } catch(e) {
-    console.log('MDOC dispatch error:', e);
-  }
+  })
+  .then(res => res.json())
+  .then(data => console.log('MDOC CRM Response:', data))
+  .catch(err => console.log('MDOC dispatch note:', err));
 
-  // 3. Send email notification to abhinavgroup2026@gmail.com
+  const mailPromise = fetch('https://formsubmit.co/ajax/abhinavgroup2026@gmail.com', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      _subject: `New Lead: The Curve, Virar - ${name} (${phone})`,
+      Name: name,
+      Email: email || 'Not Provided',
+      Phone: phone,
+      Project: 'The Curve, Virar',
+      Source: source,
+      Timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    })
+  }).catch(err => console.log('Mail dispatch note:', err));
+
+  // 3. Await lead capture dispatches (max 1.2s timeout), then redirect to thank-you.html
   try {
-    fetch('https://formsubmit.co/ajax/abhinavgroup2026@gmail.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        _subject: `New Lead: The Curve, Virar - ${name} (${phone})`,
-        Name: name,
-        Email: email || 'Not Provided',
-        Phone: phone,
-        Project: 'The Curve, Virar',
-        Source: source,
-        Timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-      })
-    }).catch(err => console.log('Mail dispatch note:', err));
+    await Promise.race([
+      Promise.allSettled([mdocPromise, mailPromise]),
+      new Promise(res => setTimeout(res, 1200))
+    ]);
   } catch(e) {
     console.log(e);
   }
 
-  // 4. Also open WhatsApp so user can connect directly
-  const msg = encodeURIComponent(`Hi, I am interested in The Curve, Virar.\n\nName: ${name}\nEmail: ${email || 'Not Provided'}\nPhone: ${phone}\nEnquiry Type: ${source}`);
-  window.open(`https://api.whatsapp.com/send/?phone=919730700667&text=${msg}&type=phone_number&app_absent=0`, '_blank');
+  // Redirect to Thank You URL for campaign conversion tracking
+  window.location.href = 'thank-you.html';
 }
 
 document.getElementById('modal-form').addEventListener('submit', e => {
@@ -2318,8 +2318,11 @@ document.getElementById('modal-form').addEventListener('submit', e => {
   const willDownloadBrochure = pendingBrochureDownload;
   pendingBrochureDownload = false;
 
-  document.getElementById('modal-form-wrap').style.display = 'none';
-  document.getElementById('modal-ok').classList.add('show');
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Submitting...';
+  }
 
   if (willDownloadBrochure) {
     const link = document.createElement('a');
@@ -2332,7 +2335,7 @@ document.getElementById('modal-form').addEventListener('submit', e => {
   }
 
   const src = willDownloadBrochure ? 'Brochure Download Request' : 'Popup Modal (Get In Touch / Enquire / Know More)';
-  setTimeout(() => submitForm(n, em, p, src), 600);
+  submitForm(n, em, p, src);
 });
 
 document.getElementById('contact-form').addEventListener('submit', e => {
@@ -2343,7 +2346,8 @@ document.getElementById('contact-form').addEventListener('submit', e => {
   if (!n || !p) return;
   const btn = e.target.querySelector('button[type="submit"]');
   if (btn) {
-    btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:8px;"><path d="M20 6L9 17l-5-5"/></svg> Enquiry Sent!`;
+    btn.disabled = true;
+    btn.innerHTML = 'Submitting...';
   }
   submitForm(n, em, p, 'Footer Contact Section (Get In Touch)');
 });
