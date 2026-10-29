@@ -2305,7 +2305,7 @@ async function submitForm(name, email, phone, source = 'Website Enquiry') {
   }
 
   // Redirect to Thank You URL for campaign conversion tracking
-  window.location.href = 'thank-you.html?t=' + Date.now();
+  window.location.href = 'thank-you.html';
 }
 
 document.getElementById('modal-form').addEventListener('submit', e => {
