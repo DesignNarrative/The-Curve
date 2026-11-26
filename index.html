@@ -177,12 +177,8 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
   border:1px solid rgba(212,170,82,0.55);
   box-shadow:0 10px 30px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
   background:#fff;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
   line-height:0;
-}
-.hero-top-badge:hover{
-  transform:translateY(-3px) scale(1.02);
-  box-shadow:0 14px 36px rgba(0,0,0,0.7), 0 0 20px rgba(212,170,82,0.45);
+  cursor:default;
 }
 .hero-top-badge img{
   width:clamp(210px, 18vw, 290px);
@@ -902,8 +898,7 @@ button{cursor:pointer;font-family:'Jost',sans-serif;border:none;outline:none}
 .qr-box{border:1px solid rgba(184,144,42,0.3);padding:8px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(28,20,16,0.06)}
 .qr-box img{width:96px;height:96px;object-fit:contain;display:block}
 .rera-num{font-size:1.15rem;font-weight:700;color:var(--gold);letter-spacing:0.04em;display:block;margin-bottom:6px}
-.rera-link{font-size:1.02rem;color:var(--dark-text);font-weight:500;transition:color 0.3s;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
-.rera-link:hover{color:var(--gold)}
+.rera-link{font-size:1.02rem;color:var(--dark-text);font-weight:500;display:inline-flex;align-items:center;gap:6px;cursor:default}
 .contact-details-wrap{margin-top:28px;display:flex;flex-direction:column;gap:16px}
 .contact-detail{display:flex;align-items:center;gap:14px;font-size:1.15rem;font-weight:500;color:var(--dark-text);text-decoration:none;transition:all 0.3s ease}
 .contact-detail:hover{color:var(--gold);transform:translateX(5px)}
@@ -1371,9 +1366,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   </div>
 
   <!-- Top Right MahaRERA Badge Below Enquire Now Button -->
-  <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" class="hero-top-badge" title="MahaRERA Registration & QR Code">
+  <div class="hero-top-badge" title="MahaRERA Registration & QR Code">
     <img src="images vedios/Maharashtra Registration Label with QR Code.png" alt="Maharashtra Registration Label with QR Code" loading="eager"/>
-  </a>
+  </div>
 
   <!-- Mid Center Right Luxury Emblem -->
   <div class="hero-emblem-right">
@@ -1717,9 +1712,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
         <div class="qr-box"><img src="MahaRERA QR.png" alt="MahaRERA QR Code" loading="lazy"/></div>
         <div>
           <span class="rera-num">MahaRERA — PR1240002600667</span>
-          <a href="https://maharera.maharashtra.gov.in" target="_blank" rel="noopener" class="rera-link">
-            maharera.maharashtra.gov.in ↗
-          </a>
+          <span class="rera-link">
+            maharera.maharashtra.gov.in
+          </span>
         </div>
       </div>
       <div class="contact-details-wrap rev d2">
